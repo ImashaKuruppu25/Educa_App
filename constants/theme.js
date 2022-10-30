@@ -1,9 +1,10 @@
 export const COLORS = {
-  primary: "#4C6ED7",
+  primary: "#2F80ED",
   secondary: "#8DA6F4",
   black: "#181818",
   white: "#FDFDFD",
   gray: "#4F4F4F",
+  lightGray: "#9D9B9B",
 };
 
 export const SIZES = {
@@ -52,9 +53,9 @@ export const SHADOWS = {
       width: 0,
       height: 7,
     },
-    shadowOpacity: 0.41,
+    shadowOpacity: 0.51,
     shadowRadius: 9.11,
 
-    elevation: 14,
+    elevation: 100,
   },
 };

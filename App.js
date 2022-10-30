@@ -30,9 +30,9 @@ export default function App() {
     <NavigationContainer theme={theme}>
       <Stack.Navigator
         screenOptions={{
-          headerShown: true,
+          headerShown: false,
         }}
-        initialRouteName="Login"
+        initialRouteName="Register"
       >
         <Stack.Screen name="Login" component={Login_screen} />
         <Stack.Screen name="Register" component={Register_screen} />
