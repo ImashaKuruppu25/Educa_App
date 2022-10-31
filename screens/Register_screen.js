@@ -3,7 +3,7 @@ import React from "react";
 import { COLORS, assets, SIZES, FONTS } from "../constants";
 import RegisterForm from "../components/RegisterForm";
 
-const Login_screen = () => {
+const Register_screen = () => {
   return (
     <View>
       <View style={styles.imgContainer}>
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     paddingTop: 100,
-
   },
 
   heading: {
@@ -33,8 +32,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingTop: 40,
     letterSpacing: 1,
-    lineHeight:35
+    lineHeight: 35,
   },
 });
 
-export default Login_screen;
+export default Register_screen;
