@@ -4,6 +4,9 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import Login_screen from "./screens/Login_screen";
 import Register_screen from "./screens/Register_screen";
+import OnBoarding1 from "./screens/Slides/OnBoarding1";
+import OnBoarding2 from "./screens/Slides/OnBoarding2";
+import OnBoarding3 from "./screens/Slides/OnBoarding3";
 
 const theme = {
   ...DefaultTheme,
@@ -16,6 +19,8 @@ const theme = {
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  //fonts load
   const [loaded] = useFonts({
     InterBold: require("./assets/fonts/Inter-Bold.ttf"),
     InterSemiBold: require("./assets/fonts/Inter-SemiBold.ttf"),
@@ -25,6 +30,7 @@ export default function App() {
   });
 
   if (!loaded) return null;
+  
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
@@ -35,6 +41,9 @@ export default function App() {
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
+        <Stack.Screen name="OnBoarding1" component={OnBoarding1} />
+        <Stack.Screen name="OnBoarding2" component={OnBoarding2} />
+        <Stack.Screen name="OnBoarding3" component={OnBoarding3} />
       </Stack.Navigator>
     </NavigationContainer>
   );
