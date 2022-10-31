@@ -1,17 +1,9 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Pressable,
-  Image,
-} from "react-native";
+import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
 import React, { useState } from "react";
 import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
 const LoginForm = () => {
-  const [checked, setChecked] = useState("first");
   const navigation = useNavigation();
   return (
     <View style={styles.card}>
@@ -33,11 +25,13 @@ const LoginForm = () => {
           placeholderTextColor={COLORS.black}
           // onChangeText={(val) => this.onChangeText("password", val)}
           //   right={<TextInput.Icon icon="eye" />}
-        
         />
         <Text style={styles.forgetPassword}>Forget password</Text>
 
-        <Pressable style={styles.submitButton}>
+        <Pressable
+          style={styles.submitButton}
+          onPress={() => navigation.navigate("OnBoarding1")}
+        >
           <Text style={styles.submitButtonText}>Login</Text>
         </Pressable>
         <View style={{ alignSelf: "center" }}>
