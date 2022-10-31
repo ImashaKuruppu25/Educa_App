@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { assets, COLORS, FONTS, SIZES } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
+import PrimaryBtn from "../../components/PrimaryBtn";
 
 const OnBoarding2 = () => {
   const navigation = useNavigation();
@@ -23,11 +24,8 @@ const OnBoarding2 = () => {
         <Image source={assets.Slider2} />
       </View>
       <View style={styles.slider}>
-        <Pressable
-          style={styles.nextButton}
-          onPress={() => navigation.navigate("OnBoarding3")}
-        >
-          <Text style={styles.nextButtonText}>Next</Text>
+        <Pressable onPress={() => navigation.navigate("OnBoarding3")}>
+          <PrimaryBtn name="Next" />
         </Pressable>
         <Text
           style={{ color: COLORS.primary, padding: 25 }}
