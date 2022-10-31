@@ -2,7 +2,6 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { StyleSheet, Text, View } from "react-native";
 import Login_screen from "./screens/Login_screen";
 import Register_screen from "./screens/Register_screen";
 
@@ -34,8 +33,8 @@ export default function App() {
         }}
         initialRouteName="Register"
       >
-        <Stack.Screen name="Login" component={Login_screen} />
         <Stack.Screen name="Register" component={Register_screen} />
+        <Stack.Screen name="Login" component={Login_screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

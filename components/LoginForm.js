@@ -1,15 +1,21 @@
-import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Pressable,
+  Image,
+} from "react-native";
 import React, { useState } from "react";
-import { COLORS, FONTS, SHADOWS, SIZES } from "../constants";
-import { RadioButton } from "react-native-paper";
+import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [checked, setChecked] = useState("first");
   const navigation = useNavigation();
   return (
     <View style={styles.card}>
-      <Text style={styles.cardHeading}>Register</Text>
+      <Text style={styles.cardHeading}>Login</Text>
       <View style={styles.container}>
         <TextInput
           style={styles.input}
@@ -26,46 +32,22 @@ const RegisterForm = () => {
           autoCapitalize="none"
           placeholderTextColor={COLORS.black}
           // onChangeText={(val) => this.onChangeText("password", val)}
+          //   right={<TextInput.Icon icon="eye" />}
+        
         />
-
-        <TextInput
-          style={styles.input}
-          placeholder="Phone Number"
-          autoCapitalize="none"
-          placeholderTextColor={COLORS.black}
-          // onChangeText={(val) => this.onChangeText("phone_number", val)}
-        />
-        <Text style={styles.redioBtnText}>Register As a?</Text>
-        <View style={styles.radioBtnGroup}>
-          <RadioButton
-            value="first"
-            status={checked === "first" ? "checked" : "unchecked"}
-            onPress={() => setChecked("first")}
-            color={COLORS.primary}
-          />
-          <Text>Student</Text>
-          <View style={{ marginLeft: 40 }}>
-            <RadioButton
-              value="second"
-              status={checked === "second" ? "checked" : "unchecked"}
-              onPress={() => setChecked("second")}
-            />
-          </View>
-
-          <Text>Teacher</Text>
-        </View>
+        <Text style={styles.forgetPassword}>Forget password</Text>
 
         <Pressable style={styles.submitButton}>
-          <Text style={styles.submitButtonText}>Register</Text>
+          <Text style={styles.submitButtonText}>Login</Text>
         </Pressable>
         <View style={{ alignSelf: "center" }}>
           <Text>
-            Have an account?{" "}
+            Don’ have an account?{" "}
             <Text
-              onPress={() => navigation.navigate("Login")}
+              onPress={() => navigation.navigate("Register")}
               style={styles.loginLink}
             >
-              Login
+              Register
             </Text>
           </Text>
         </View>
@@ -136,5 +118,11 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontFamily: FONTS.semiBold,
   },
+  forgetPassword: {
+    color: COLORS.lightGray,
+    textAlign: "right",
+    fontSize: SIZES.small,
+  },
 });
-export default RegisterForm;
+
+export default LoginForm;
