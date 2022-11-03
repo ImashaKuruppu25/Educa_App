@@ -7,6 +7,8 @@ import Register_screen from "./screens/Register_screen";
 import OnBoarding1 from "./screens/Slides/OnBoarding1";
 import OnBoarding2 from "./screens/Slides/OnBoarding2";
 import OnBoarding3 from "./screens/Slides/OnBoarding3";
+import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
+import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
 
 const theme = {
   ...DefaultTheme,
@@ -19,7 +21,6 @@ const theme = {
 const Stack = createStackNavigator();
 
 export default function App() {
-
   //fonts load
   const [loaded] = useFonts({
     InterBold: require("./assets/fonts/Inter-Bold.ttf"),
@@ -30,7 +31,7 @@ export default function App() {
   });
 
   if (!loaded) return null;
-  
+
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
@@ -44,6 +45,8 @@ export default function App() {
         <Stack.Screen name="OnBoarding1" component={OnBoarding1} />
         <Stack.Screen name="OnBoarding2" component={OnBoarding2} />
         <Stack.Screen name="OnBoarding3" component={OnBoarding3} />
+        <Stack.Screen name="ClassOption" component={ClassOption_screen} />
+        <Stack.Screen name="CourseOption" component={CourseOption_screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

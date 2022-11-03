@@ -6,6 +6,8 @@ import OnBoarding3 from "../assets/images/OnBoarding3.png";
 import Slider1 from "../assets/images/Slider1.png";
 import Slider2 from "../assets/images/Slider2.png";
 import Slider3 from "../assets/images/Slider3.png";
+import classOption from "../assets/images/classOption.png";
+import courseOption from "../assets/images/courseOption.png";
 
 export default {
   logo,
@@ -16,4 +18,6 @@ export default {
   Slider1,
   Slider2,
   Slider3,
+  classOption,
+  courseOption,
 };
