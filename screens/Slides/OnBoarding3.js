@@ -24,7 +24,7 @@ const OnBoarding3 = () => {
         <Image source={assets.Slider3} />
       </View>
       <View style={styles.slider}>
-        <Pressable onPress={() => navigation.navigate("OnBoarding1")}>
+        <Pressable onPress={() => navigation.navigate("ClassOption")}>
           <PrimaryBtn name="Let’s Make a Journey" />
         </Pressable>
       </View>
