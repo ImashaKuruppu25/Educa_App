@@ -28,13 +28,13 @@ const CourseOption_screen = ({ route }) => {
   //render Subjects to the flat list
   const renderItem = ({ item }) => {
     const borderColor =
-      item.id === selectedId ? COLORS.primary : COLORS.lightGray;
-    const color = item.id === selectedId ? COLORS.primary : COLORS.black;
+      item.subjectId  === selectedId ? COLORS.primary : COLORS.lightGray;
+    const color = item.subjectId === selectedId ? COLORS.primary : COLORS.black;
 
     return (
       <Item
         item={item}
-        onPress={() => setSelectedId(item.id)}
+        onPress={() => setSelectedId(item.subjectId)}
         borderColor={{ borderColor }}
         textColor={{ color }}
       />

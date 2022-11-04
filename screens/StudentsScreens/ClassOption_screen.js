@@ -68,10 +68,12 @@ const ClassOption_screen = () => {
         <Pressable
           style={{ marginTop: 25 }}
           onPress={
-            () =>
-              navigation.navigate("CourseOption", {
-                subjectList: subjects.subjects,
-              }) //pass subjects to the next screen
+            subjects
+              ? () =>
+                  navigation.navigate("CourseOption", {
+                    subjectList: subjects.subjects,
+                  }) //pass subjects to the next screen
+              : null
           }
         >
           <PrimaryBtn name="Next" />
