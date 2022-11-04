@@ -4,12 +4,15 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import Login_screen from "./screens/Login_screen";
 import Register_screen from "./screens/Register_screen";
+import TeacherHome_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
 import OnBoarding1 from "./screens/Slides/OnBoarding1";
 import OnBoarding2 from "./screens/Slides/OnBoarding2";
 import OnBoarding3 from "./screens/Slides/OnBoarding3";
 import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
 import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
 import Home_screen from "./screens/StudentsScreens/Home_screen";
+import TeacherCourse_screen from "./screens/TeachersScreens/TeacherCourse_screen";
+import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile_screen";
 
 const theme = {
   ...DefaultTheme,
@@ -39,7 +42,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Register"
+        initialRouteName="TeacherHome"
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
@@ -49,6 +52,9 @@ export default function App() {
         <Stack.Screen name="ClassOption" component={ClassOption_screen} />
         <Stack.Screen name="CourseOption" component={CourseOption_screen} />
         <Stack.Screen name="StudentHome" component={Home_screen} />
+        <Stack.Screen name="TeacherHome" component={TeacherHome_screen} />
+        <Stack.Screen name="TeacherCourse" component={TeacherCourse_screen} />
+        <Stack.Screen name="TeacherProfile" component={TeacherProfile_screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
