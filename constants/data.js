@@ -49,7 +49,7 @@ export const classes = [
                 chapterId: "chapter002",
                 chapterName: "Chapter 2",
                 chapterContent:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
+                  "Lorem ipsum dolor sit ame, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
             ],
           },
