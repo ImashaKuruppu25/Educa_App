@@ -21,14 +21,24 @@ const Item = ({ item, borderColor, onPress, textColor }) => (
 const CourseOption_screen = ({ route }) => {
   const navigation = useNavigation();
   const [selectedId, setSelectedId] = useState(null);
-
+  let courses;
   //get the subjects from param
   const { subjectList } = route.params;
+
+  //get courses for relavent subject
+  const getCourses = () => {
+    courses = //JSON.stringify(
+      subjectList.find((clas) => clas.subjectId === selectedId);
+    //);
+  };
+  getCourses();
+
+  // console.log(JSON.stringify(subjectList[0].courses[1].courseId));
 
   //render Subjects to the flat list
   const renderItem = ({ item }) => {
     const borderColor =
-      item.subjectId  === selectedId ? COLORS.primary : COLORS.lightGray;
+      item.subjectId === selectedId ? COLORS.primary : COLORS.lightGray;
     const color = item.subjectId === selectedId ? COLORS.primary : COLORS.black;
 
     return (
@@ -61,7 +71,17 @@ const CourseOption_screen = ({ route }) => {
           keyExtractor={(item) => item.subjectId}
           extraData={selectedId}
         />
-        <Pressable style={{ marginTop: 25 }}>
+        <Pressable
+          style={{ marginTop: 25 }}
+          onPress={
+            courses
+              ? () =>
+                  navigation.navigate("StudentHome", {
+                    courses: courses.courses,
+                  }) //pass courses to the next screen
+              : null
+          }
+        >
           <PrimaryBtn name="Next" />
         </Pressable>
       </View>

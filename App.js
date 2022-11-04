@@ -9,6 +9,7 @@ import OnBoarding2 from "./screens/Slides/OnBoarding2";
 import OnBoarding3 from "./screens/Slides/OnBoarding3";
 import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
 import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
+import Home_screen from "./screens/StudentsScreens/Home_screen";
 
 const theme = {
   ...DefaultTheme,
@@ -47,6 +48,7 @@ export default function App() {
         <Stack.Screen name="OnBoarding3" component={OnBoarding3} />
         <Stack.Screen name="ClassOption" component={ClassOption_screen} />
         <Stack.Screen name="CourseOption" component={CourseOption_screen} />
+        <Stack.Screen name="StudentHome" component={Home_screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
