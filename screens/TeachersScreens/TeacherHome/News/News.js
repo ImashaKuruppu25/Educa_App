@@ -37,7 +37,7 @@ export const News = () => {
   return (
     <View
       style={{
-        height: "90%",
+        height: "91%",
         flexDirection: "column",
       }}
     >
