@@ -33,8 +33,6 @@ const CourseOption_screen = ({ route }) => {
   };
   getCourses();
 
-  // console.log(JSON.stringify(subjectList[0].courses[1].courseId));
-
   //render Subjects to the flat list
   const renderItem = ({ item }) => {
     const borderColor =
@@ -78,6 +76,7 @@ const CourseOption_screen = ({ route }) => {
               ? () =>
                   navigation.navigate("StudentHome", {
                     courses: courses.courses,
+                    name: courses.subjectName,
                   }) //pass courses to the next screen
               : null
           }
