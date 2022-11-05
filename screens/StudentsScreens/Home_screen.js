@@ -6,6 +6,7 @@ import { FlatGrid } from "react-native-super-grid";
 
 const Home_screen = ({ route }) => {
   const { courses, name } = route.params;
+
   const [inputValue, setInputValue] = React.useState(null);
 
   //render courses to the flat list
@@ -30,7 +31,6 @@ const Home_screen = ({ route }) => {
         </Text>
         <Text> See all</Text>
       </View>
-
       {/* grid view for courses */}
       <FlatGrid
         itemDimension={130}
@@ -43,7 +43,6 @@ const Home_screen = ({ route }) => {
             <View style={{ padding: 10 }}>
               <Text style={styles.itemName}>{name}</Text>
               <Text style={styles.itemCode}>{item.courseName}</Text>
-
               {/* completion status */}
               <View
                 style={{
