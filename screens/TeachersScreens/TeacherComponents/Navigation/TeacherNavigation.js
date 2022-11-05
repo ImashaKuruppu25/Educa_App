@@ -63,7 +63,7 @@ const TeacherNavigation = () => {
       >
         <View style={{ alignItems: "center", paddingTop: 10 }}>
           <Ionicons name="person-outline" size={20} color={`${profile}`} />
-          <Text style={{ textAlign: "center" }}>Profile</Text>
+          {/* <Text style={{ textAlign: "center" }}>Profile</Text> */}
         </View>
       </Pressable>
     </View>
