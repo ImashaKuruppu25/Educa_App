@@ -10,14 +10,13 @@ import OnBoarding2 from "./screens/Slides/OnBoarding2";
 import OnBoarding3 from "./screens/Slides/OnBoarding3";
 import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
 import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
-
 import MyTabs from "./components/BottomNav";
-import TeacherCourse_screen from "./screens/TeachersScreens/TeacherCourse_screen";
-import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile_screen";
-
 import Home_screen from "./screens/StudentsScreens/Home_screen";
 import TeacherCourse_screen from "./screens/TeachersScreens/TeacherCourse/TeacherCourse_screen";
 import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/TeacherProfile_screen";
+import AddCourse from "./screens/TeachersScreens/TeacherCourse/Courses/AddEditCourse/AddCourse";
+import EditCourse from "./screens/TeachersScreens/TeacherCourse/Courses/AddEditCourse/EditCourse";
+import ViewCourse from "./screens/TeachersScreens/TeacherCourse/Courses/ViewCourse/ViewCourse";
 
 
 
@@ -49,7 +48,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="TeacherProfile"
+        initialRouteName="TeacherViewCourse"
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
@@ -59,11 +58,12 @@ export default function App() {
         <Stack.Screen name="ClassOption" component={ClassOption_screen} />
         <Stack.Screen name="CourseOption" component={CourseOption_screen} />
         <Stack.Screen name="BottomNavigator" component={MyTabs} />
-      
         <Stack.Screen name="TeacherHome" component={TeacherHome_screen} />
         <Stack.Screen name="TeacherCourse" component={TeacherCourse_screen} />
         <Stack.Screen name="TeacherProfile" component={TeacherProfile_screen} />
-
+        <Stack.Screen name="TeacherAddCourse" component={AddCourse} />
+        <Stack.Screen name="TeacherEditCourse" component={EditCourse} />
+        <Stack.Screen name="TeacherViewCourse" component={ViewCourse} />
       </Stack.Navigator>
     </NavigationContainer>
   );

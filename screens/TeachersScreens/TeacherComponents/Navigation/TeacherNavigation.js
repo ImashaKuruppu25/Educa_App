@@ -27,6 +27,7 @@ const TeacherNavigation = () => {
       style={{
         flexDirection: "row",
         height: "100%",
+        backgroundColor: "white",
       }}
     >
       <Pressable

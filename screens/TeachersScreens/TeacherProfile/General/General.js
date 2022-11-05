@@ -18,7 +18,7 @@ export const General = () => {
   return (
     <View>
       <ScrollView style={{ height: "100%", width: "100%" }}>
-        <View style={{ flexDirection: "row", marginBottom: 10 }}>
+        <View style={{ flexDirection: "row", marginBottom: 20 }}>
           <View style={{ flex: 1, padding: 5 }}>
             <Ionicons name="person" size={20} color="#2F80ED" />
           </View>
@@ -208,7 +208,7 @@ export const General = () => {
           </View>
         </View>
         <View style={{ alignItems: "center" }}>
-          {nameEdit | emailEdit | passwordEdit | phoneEdit | paymentEdit ? (
+          {nameEdit | emailEdit | passwordEdit | phoneEdit ? (
             <Button style={{ backgroundColor: "#2F80ED" }}>
               <Text style={{ color: "white" }}>Submit</Text>
             </Button>
