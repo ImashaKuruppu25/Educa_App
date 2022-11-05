@@ -74,7 +74,7 @@ const CourseOption_screen = ({ route }) => {
           onPress={
             courses
               ? () =>
-                  navigation.navigate("StudentHome", {
+                  navigation.navigate("BottomNavigator", {
                     courses: courses.courses,
                     name: courses.subjectName,
                   }) //pass courses to the next screen
