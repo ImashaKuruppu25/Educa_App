@@ -147,20 +147,21 @@ export const Courses = () => {
                     borderWidth: 1,
                     marginTop: 10,
                     alignItems: "center",
+                    borderRadius: 8,
                   }}
                 >
                   <View style={{ flex: 1 }}>
                     <Button
                       onPress={() => navigation.navigate("TeacherViewCourse")}
                     >
-                      View
+                      <Text style={{ color: "black" }}>View</Text>
                     </Button>
                   </View>
                   <View style={{ flex: 1 }}>
                     <Button
                       onPress={() => navigation.navigate("TeacherEditCourse")}
                     >
-                      Edit
+                      <Text style={{ color: "black" }}>Edit</Text>
                     </Button>
                   </View>
                 </View>

@@ -34,12 +34,12 @@ const TeacherCourse_screen = () => {
       <View style={{ flex: 8 }}>
         <Courses />
       </View>
-      <View style={{ flex: 0.5 }}>
+      <View style={{ flex: 0.6 }}>
         <Button
-          style={{ backgroundColor: "#2F80ED", height: "100%" }}
+          style={{ backgroundColor: "#2F80ED", height: "100%", padding: 5 }}
           onPress={() => navigation.navigate("TeacherAddCourse")}
         >
-          <Text style={{ color: "white", marginTop: 10 }}>Add New Course</Text>
+          <Text style={{ color: "white" }}>Add New Course</Text>
         </Button>
       </View>
       <View style={{ flex: 0.5 }}>

@@ -11,6 +11,7 @@ import {
 import Antdesign from "react-native-vector-icons/AntDesign";
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import { Lesson } from "./Lessons/Lesson";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
@@ -28,7 +29,7 @@ const ViewCourse = () => {
       <View>
         <View style={{ zIndex: -1 }}>
           <Image
-            source={assets.courseImg1}
+            source={assets.lessonprogressT}
             style={{
               width: width,
               height: 250,
@@ -51,7 +52,7 @@ const ViewCourse = () => {
         <View
           style={{
             zIndex: 1,
-            top: -60,
+            top: -70,
             backgroundColor: "white",
             height: 500,
             borderTopLeftRadius: 70,
@@ -83,13 +84,27 @@ const ViewCourse = () => {
               eleifend lorem egestas mauris massa massa
             </Text>
           </View>
-          <View>
-            <Text>FlaList here</Text>
+          <View style={{ height: "60%" }}>
+            <Lesson />
           </View>
         </View>
       </View>
-      <View style={{ marginBottom: 10 }}>
-        <Button>Edit course</Button>
+      <View
+        style={{
+          marginBottom: 10,
+          // backgroundColor: "#2F80ED",
+          padding: 10,
+          width: "90%",
+          marginLeft: "5%",
+        }}
+      >
+        <Button
+          mode="contained"
+          style={{ backgroundColor: "#2F80ED", padding: 5 }}
+          onPress={() => navigate.navigate("TeacherSaveChanges")}
+        >
+          <Text style={{ color: "white" }}>Edit course</Text>
+        </Button>
       </View>
     </View>
   );
