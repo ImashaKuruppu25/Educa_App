@@ -36,7 +36,7 @@ const LoginForm = () => {
         </Pressable>
         <View style={{ alignSelf: "center" }}>
           <Text>
-            Don’ have an account?{" "}
+            Don’t have an account?{" "}
             <Text
               onPress={() => navigation.navigate("Register")}
               style={styles.loginLink}
