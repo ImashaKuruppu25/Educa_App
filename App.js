@@ -17,8 +17,9 @@ import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/Teac
 import AddCourse from "./screens/TeachersScreens/TeacherCourse/Courses/AddEditCourse/AddCourse";
 import EditCourse from "./screens/TeachersScreens/TeacherCourse/Courses/AddEditCourse/EditCourse";
 import ViewCourse from "./screens/TeachersScreens/TeacherCourse/Courses/ViewCourse/ViewCourse";
-
-
+import AddLesson from "./screens/TeachersScreens/TeacherCourse/Lessons/AddEditLesson/AddLesson";
+import EditLesson from "./screens/TeachersScreens/TeacherCourse/Lessons/AddEditLesson/EditLesson";
+import SaveChanges from "./screens/TeachersScreens/TeacherCourse/Lessons/AddEditLesson/Savechanges";
 
 const theme = {
   ...DefaultTheme,
@@ -48,7 +49,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="TeacherViewCourse"
+        initialRouteName="TeacherSaveChanges"
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
@@ -64,6 +65,9 @@ export default function App() {
         <Stack.Screen name="TeacherAddCourse" component={AddCourse} />
         <Stack.Screen name="TeacherEditCourse" component={EditCourse} />
         <Stack.Screen name="TeacherViewCourse" component={ViewCourse} />
+        <Stack.Screen name="TeacherAddLesson" component={AddLesson} />
+        <Stack.Screen name="TeacherEditLesson" component={EditLesson} />
+        <Stack.Screen name="TeacherSaveChanges" component={SaveChanges} />
       </Stack.Navigator>
     </NavigationContainer>
   );
