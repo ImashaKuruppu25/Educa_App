@@ -11,8 +11,8 @@ import OnBoarding3 from "./screens/Slides/OnBoarding3";
 import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
 import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
 import MyTabs from "./components/BottomNav";
-import TeacherCourse_screen from "./screens/TeachersScreens/TeacherCourse_screen";
-import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile_screen";
+import TeacherCourse_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
+import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/TeacherProfile_screen";
 
 const theme = {
   ...DefaultTheme,
@@ -42,7 +42,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Register"
+        initialRouteName="TeacherProfile"
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
