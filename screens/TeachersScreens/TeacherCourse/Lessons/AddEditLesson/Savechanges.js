@@ -49,7 +49,7 @@ const SaveChanges = () => {
               paddingRight: 10,
             }}
           >
-            Lesson Name
+            Course Name
           </Text>
           <Text
             style={{
