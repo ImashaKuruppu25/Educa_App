@@ -1,14 +1,14 @@
 import { View, Text, Dimensions, StatusBar } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import TeacherNavigation from "../TeacherComponents/Navigation/TeacherNavigation";
 import { useNavigation } from "@react-navigation/native";
 import { Button, Searchbar } from "react-native-paper";
 import { Courses } from "./Courses/Courses";
+
 const height = Dimensions.get("window").height;
 
 const TeacherCourse_screen = () => {
   const navigation = useNavigation();
-
   return (
     <View
       style={{
