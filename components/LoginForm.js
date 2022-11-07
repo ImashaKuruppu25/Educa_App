@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
 import React, { useState } from "react";
-import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
+import { COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
 const LoginForm = () => {
@@ -36,7 +36,7 @@ const LoginForm = () => {
         </Pressable>
         <View style={{ alignSelf: "center" }}>
           <Text>
-            Don’ have an account?{" "}
+            Don’t have an account?{" "}
             <Text
               onPress={() => navigation.navigate("Register")}
               style={styles.loginLink}
