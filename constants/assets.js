@@ -10,6 +10,7 @@ import Slider2 from "../assets/images/Slider2.png";
 import Slider3 from "../assets/images/Slider3.png";
 import courseImg1 from "../assets/images/course1.png";
 import courseImg2 from "../assets/images/course2.png";
+import classListImg from "../assets/images/classListImg.png";
 import classOption from "../assets/images/classOption.png";
 import courseOption from "../assets/images/courseOption.png";
 import lessonprogressT from "../assets/images/lessonprogressT.png";
@@ -33,6 +34,7 @@ export default {
   courseImg2,
   lessonprogressT,
   newsT,
+  classListImg,
   Course,
   CreateCourse,
 };
