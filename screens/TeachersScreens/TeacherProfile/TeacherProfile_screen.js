@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Dimensions, StatusBar } from "react-native";
 import { assets } from "../../../constants";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
@@ -14,14 +14,21 @@ const TeacherProfile_screen = () => {
   const [badgesfontColor, setbadgesfontColor] = useState("black");
   const [component, setComponent] = useState(true);
   const navigation = useNavigation();
+  const height = Dimensions.get("window").height;
 
   return (
-    <View style={{ height: "100%" }}>
+    <View
+      style={{
+        height: height,
+        width: "100%",
+        marginTop: StatusBar.currentHeight,
+      }}
+    >
       <View
         style={{
           flex: 1.5,
           // backgroundColor: "red",
-          marginTop: "10%",
+          // marginTop: "10%",
           alignItems: "center",
           flexDirection: "column",
         }}
