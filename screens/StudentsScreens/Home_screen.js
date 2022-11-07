@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TextInput, Image } from "react-native";
 import React from "react";
 import Header from "../../components/Header";
-import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../../constants";
+import { assets, COLORS, FONTS, SIZES } from "../../constants";
 import { FlatGrid } from "react-native-super-grid";
 
 const Home_screen = ({ route }) => {

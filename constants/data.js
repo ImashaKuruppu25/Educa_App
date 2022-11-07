@@ -136,3 +136,41 @@ export const classes = [
     ],
   },
 ];
+
+export const requests = [
+  {
+    reqId: "001",
+    request:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+    reply:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+  },
+  {
+    reqId: "002",
+    request:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+    reply:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+  },
+  {
+    reqId: "003",
+    request:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+    reply:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+  },
+  {
+    reqId: "004",
+    request:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+    reply:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+  },
+  {
+    reqId: "005",
+    request:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+    reply:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
+  },
+];

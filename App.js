@@ -13,7 +13,7 @@ import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
 import MyTabs from "./components/BottomNav";
 import TeacherCourse_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
 import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/TeacherProfile_screen";
-
+import MyRequest_screen from "./screens/StudentsScreens/MyRequest_screen";
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -42,7 +42,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="TeacherProfile"
+        initialRouteName="Register"
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
@@ -55,6 +55,7 @@ export default function App() {
         <Stack.Screen name="TeacherHome" component={TeacherHome_screen} />
         <Stack.Screen name="TeacherCourse" component={TeacherCourse_screen} />
         <Stack.Screen name="TeacherProfile" component={TeacherProfile_screen} />
+        <Stack.Screen name="MyRequest" component={MyRequest_screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
