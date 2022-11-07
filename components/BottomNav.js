@@ -3,7 +3,7 @@ import MyPrfile_screen from "../screens/StudentsScreens/MyProfile_screen";
 import Home_screen from "../screens/StudentsScreens/Home_screen";
 import MyClasses from "../screens/StudentsScreens/MyClasses";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { COLORS, SHADOWS, SIZES } from "../constants";
+import { COLORS, SIZES } from "../constants";
 
 const Tab = createMaterialBottomTabNavigator();
 

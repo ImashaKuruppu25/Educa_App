@@ -10,6 +10,12 @@ import OnBoarding3 from "./screens/Slides/OnBoarding3";
 import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
 import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
 import MyTabs from "./components/BottomNav";
+
+import TeacherCourse_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
+import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/TeacherProfile_screen";
+import MyRequest_screen from "./screens/StudentsScreens/MyRequest_screen";
+
+
 import Home_screen from "./screens/StudentsScreens/Home_screen";
 import TeacherHome_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
 import TeacherCourse_screen from "./screens/TeachersScreens/TeacherCourse/TeacherCourse_screen";
@@ -63,6 +69,9 @@ export default function App() {
         <Stack.Screen name="TeacherHome" component={TeacherHome_screen} />
         <Stack.Screen name="TeacherCourse" component={TeacherCourse_screen} />
         <Stack.Screen name="TeacherProfile" component={TeacherProfile_screen} />
+
+        <Stack.Screen name="MyRequest" component={MyRequest_screen} />
+
         <Stack.Screen name="TeacherAddCourse" component={AddCourse} />
         <Stack.Screen name="TeacherEditCourse" component={EditCourse} />
         <Stack.Screen name="TeacherViewCourse" component={ViewCourse} />
