@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { assets } from "../../../../../constants";
 import {
   View,
@@ -12,11 +12,29 @@ import Antdesign from "react-native-vector-icons/AntDesign";
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { Lesson } from "./Lessons/Lesson";
+import axios from "axios";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
 const ViewCourse = () => {
   const navigate = useNavigation();
+  const [lesson, setLessons] = useState([]);
+  const [isLoaded, setLoaded] = useState(false);
+  const fetchApi = async () => {
+    try {
+      let arr = await axios.get(
+        "https://uee-b.herokuapp.com/teacher/getLesson"
+      );
+      setLessons(arr.data);
+      setLoaded(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchApi();
+  }, []);
+
   return (
     <View
       style={{
@@ -84,8 +102,8 @@ const ViewCourse = () => {
               eleifend lorem egestas mauris massa massa
             </Text>
           </View>
-          <View style={{ height: "60%" }}>
-            <Lesson />
+          <View>
+            <Lesson lessons={lesson} isLoaded={isLoaded} />
           </View>
         </View>
       </View>

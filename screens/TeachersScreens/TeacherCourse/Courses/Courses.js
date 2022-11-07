@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Materialicons from "react-native-vector-icons/MaterialIcons";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native-paper";
+import AnimatedLoader from "react-native-animated-loader";
 
 const DATA = [
   {
@@ -89,12 +90,21 @@ const DATA = [
   },
 ];
 
-export const Courses = () => {
+export const Courses = (props) => {
   const navigation = useNavigation();
-  return (
+  return !props.isLoaded ? (
+    <AnimatedLoader
+      visible={true}
+      overlayColor="rgba(255,255,255,0.75)"
+      animationStyle={{ width: 100, height: 100 }}
+      speed={1}
+    >
+      <Text>Loading...</Text>
+    </AnimatedLoader>
+  ) : (
     <View style={{ height: "100%", width: "100%" }}>
       <FlatList
-        data={DATA}
+        data={props.courses || DATA}
         renderItem={({ item }) => {
           return (
             <View style={{ padding: 5, flexDirection: "row", flex: 1 }}>
