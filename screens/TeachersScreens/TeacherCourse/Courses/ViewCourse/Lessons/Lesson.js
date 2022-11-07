@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, FlatList, Pressable } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import AnimatedLoader from "react-native-animated-loader";
 
 const DATA = [
   {
@@ -66,9 +67,18 @@ const DATA = [
   },
 ];
 
-export const Lesson = () => {
+export const Lesson = (props) => {
   const navigation = useNavigation();
-  return (
+  return !props.isLoaded ? (
+    <AnimatedLoader
+      visible={true}
+      overlayColor="rgba(255,255,255,0.75)"
+      animationStyle={{ width: 100, height: 100 }}
+      speed={1}
+    >
+      <Text>Loading...</Text>
+    </AnimatedLoader>
+  ) : (
     <View
       style={{
         marginLeft: 10,
@@ -79,7 +89,7 @@ export const Lesson = () => {
     >
       <Text style={{ marginBottom: 10 }}>Your Lessons</Text>
       <FlatList
-        data={DATA}
+        data={props.lessons || DATA}
         renderItem={({ item }) => {
           return (
             <Pressable onPress={() => navigation.navigate("TeacherEditLesson")}>
@@ -99,7 +109,7 @@ export const Lesson = () => {
             </Pressable>
           );
         }}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item._id}
       />
     </View>
   );
