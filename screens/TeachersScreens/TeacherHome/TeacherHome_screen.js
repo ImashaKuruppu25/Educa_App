@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions, StatusBar } from "react-native";
 import { Searchbar } from "react-native-paper";
 import Icon from "react-native-vector-icons/Feather";
 import React, { useState } from "react";
@@ -8,8 +8,15 @@ import { News } from "./News/News";
 
 const TeacherHome_screen = () => {
   const [name, setName] = useState("Samuel");
+  const height = Dimensions.get("window").height;
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        height: height,
+        width: "100%",
+        marginTop: StatusBar.currentHeight,
+      }}
+    >
       <View style={styles.header}>
         <View style={styles.headerTop}>
           <View>
@@ -48,13 +55,8 @@ const TeacherHome_screen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    minHeight: "100%",
-    // backgroundColor: "black",
-  },
   header: {
-    marginTop: "10%",
+    // marginTop: "10%",
     marginBottom: 5,
     flex: 1,
     flexDirection: "column",
