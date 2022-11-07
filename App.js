@@ -49,7 +49,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="TeacherSaveChanges"
+        initialRouteName="Register"
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
@@ -59,6 +59,7 @@ export default function App() {
         <Stack.Screen name="ClassOption" component={ClassOption_screen} />
         <Stack.Screen name="CourseOption" component={CourseOption_screen} />
         <Stack.Screen name="BottomNavigator" component={MyTabs} />
+
         <Stack.Screen name="TeacherHome" component={TeacherHome_screen} />
         <Stack.Screen name="TeacherCourse" component={TeacherCourse_screen} />
         <Stack.Screen name="TeacherProfile" component={TeacherProfile_screen} />
