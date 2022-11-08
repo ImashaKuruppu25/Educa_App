@@ -11,7 +11,7 @@ export const userLogin = (email, password) => async dispatch => {
     const config = {headers: {'Content-Type': 'application/json'}};
 
     const {data} = await axios.post(
-      `${URI}/api/v2/login`,
+      `https://uee-b.herokuapp.com/api/v2/login`,
       {email, password},
       config,
     );
@@ -33,7 +33,7 @@ export const register = (name, email, password, avatar) => async dispatch => {
     dispatch({type: 'userCreateRequest'});
 
     const {data} = await axios.post(
-      `https://mern-ecommerce-stores.herokuapp.com/api/v2/registration`,
+      `https://uee-b.herokuapp.com/api/v2/registration`,
       {name, email, password, avatar},
       {
         headers: {
@@ -52,15 +52,18 @@ export const register = (name, email, password, avatar) => async dispatch => {
 
 // Load User
 export const loadUser = () => async dispatch => {
+  console.log('1111111');
   try {
     dispatch({type: 'userLoadRequest'});
-
+    console.log('222222');
     const {data} = await axios.get(
       `https://uee-b.herokuapp.com/api/v2/me`,
     );
-
+    console.log('33333333');
+    console.log(data);
     dispatch({type: 'userLoadSuccess', payload: data.user});
   } catch (error) {
+    console.log('catch');
     dispatch({type: 'userLoadFailed', payload: error.response.data.message});
   }
 };
@@ -107,7 +110,7 @@ export const updateProfile = (name, email, avatar) => async dispatch => {
     const config = {headers: {'Content-Type': 'application/json'}};
 
     const {data} = await axios.put(
-      `${URI}/api/v2/me/update/info`,
+      `https://uee-b.herokuapp.com/api/v2/me/update/info`,
       {name, email, avatar},
       config,
     );

@@ -1,4 +1,3 @@
-import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
@@ -10,12 +9,7 @@ import OnBoarding3 from "./screens/Slides/OnBoarding3";
 import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
 import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
 import MyTabs from "./components/BottomNav";
-
-import TeacherCourse_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
-import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/TeacherProfile_screen";
 import MyRequest_screen from "./screens/StudentsScreens/MyRequest_screen";
-
-
 import Home_screen from "./screens/StudentsScreens/Home_screen";
 import TeacherHome_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
 import TeacherCourse_screen from "./screens/TeachersScreens/TeacherCourse/TeacherCourse_screen";
@@ -27,6 +21,12 @@ import AddLesson from "./screens/TeachersScreens/TeacherCourse/Lessons/AddEditLe
 import EditLesson from "./screens/TeachersScreens/TeacherCourse/Lessons/AddEditLesson/EditLesson";
 import SaveChanges from "./screens/TeachersScreens/TeacherCourse/Lessons/AddEditLesson/Savechanges";
 
+
+import React, {useEffect} from 'react';
+import {Provider, useSelector} from 'react-redux';
+import Store from './Redux/Store';
+import {loadUser} from './Redux/Actions/UserAction';
+
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -35,9 +35,23 @@ const theme = {
   },
 };
 
+const App = () => {
+  return (
+    <Provider store={Store}>
+      <AppStack />
+    </Provider>
+  );
+};
+
 const Stack = createStackNavigator();
 
-export default function App() {
+const AppStack = () => {
+  const {isAuthenticated, loading, error} = useSelector(state => state.user);
+  console.log(error);
+  
+  useEffect(() => {
+    Store.dispatch(loadUser());
+  }, []);
   //fonts load
   const [loaded] = useFonts({
     InterBold: require("./assets/fonts/Inter-Bold.ttf"),
@@ -55,7 +69,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="TeacherHome"
+        initialRouteName="Login"
       >
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
@@ -81,4 +95,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default App;
