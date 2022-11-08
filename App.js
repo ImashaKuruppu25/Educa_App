@@ -11,11 +11,9 @@ import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
 import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
 import MyTabs from "./components/BottomNav";
 
-import TeacherCourse_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
 import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/TeacherProfile_screen";
 import MyRequest_screen from "./screens/StudentsScreens/MyRequest_screen";
 
-import Home_screen from "./screens/StudentsScreens/Home_screen";
 import TeacherHome_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
 import TeacherCourse_screen from "./screens/TeachersScreens/TeacherCourse/TeacherCourse_screen";
 import AddCourse from "./screens/TeachersScreens/TeacherCourse/Courses/AddEditCourse/AddCourse";
@@ -28,6 +26,8 @@ import SingleCourse from "./screens/StudentsScreens/Course_screen";
 import AdminBottomNav from "./screens/AdminScreens/AdminBottomNav";
 import AllRequest_screen from "./screens/AdminScreens/AllRequest_screen";
 import UserManagement_screen from "./screens/AdminScreens/UserManagement_screen";
+import CourseDetails from "./screens/StudentsScreens/CourseDetail_screen";
+
 import { COLORS, FONTS } from "./constants";
 const theme = {
   ...DefaultTheme,
@@ -99,6 +99,7 @@ export default function App() {
         />
         <Stack.Screen name="AdminRequest" component={AllRequest_screen} />
         <Stack.Screen name="UserManagement" component={UserManagement_screen} />
+        <Stack.Screen name="CourseDetails" component={CourseDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
