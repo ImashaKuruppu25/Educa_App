@@ -5,6 +5,16 @@ const AdminHome_screen = () => {
   return (
     <View>
       <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
+      <Text>AdminHome_screen</Text>
     </View>
   );
 };

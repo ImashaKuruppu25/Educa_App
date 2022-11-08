@@ -30,8 +30,6 @@ const RegisterForm = () => {
     "https://res.cloudinary.com/djnpm1f5w/image/upload/v1665812366/avatars/yovsiisgccydqnwpewoi.jpg"
   );
 
-  console.log(name, email, password, avatar);
-
   const registerUser = () => {
     dispatch(register(name, email, password, avatar));
   };
