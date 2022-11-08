@@ -46,8 +46,9 @@ const App = () => {
 const Stack = createStackNavigator();
 
 const AppStack = () => {
-  const {isAuthenticated, loading, error} = useSelector(state => state.user);
-  console.log(error);
+  const {isAuthenticated, loading, error, user} = useSelector(state => state.user);
+  console.log(isAuthenticated);
+  console.log(user.role);
   
   useEffect(() => {
     Store.dispatch(loadUser());
