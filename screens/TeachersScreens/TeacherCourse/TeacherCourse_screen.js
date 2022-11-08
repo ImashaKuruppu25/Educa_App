@@ -1,13 +1,30 @@
 import { View, Text, Dimensions, StatusBar } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TeacherNavigation from "../TeacherComponents/Navigation/TeacherNavigation";
 import { useNavigation } from "@react-navigation/native";
 import { Button, Searchbar } from "react-native-paper";
 import { Courses } from "./Courses/Courses";
+import axios from "axios";
 const height = Dimensions.get("window").height;
 
 const TeacherCourse_screen = () => {
   const navigation = useNavigation();
+  const [courses, setCourses] = useState([]);
+  const [isLoaded, setLoaded] = useState(false);
+  const fetchApi = async () => {
+    try {
+      let arr = await axios.get(
+        "https://uee-b.herokuapp.com/teacher/getCourse"
+      );
+      setCourses(arr.data);
+      setLoaded(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchApi();
+  }, [courses]);
 
   return (
     <View
@@ -32,7 +49,7 @@ const TeacherCourse_screen = () => {
         </View>
       </View>
       <View style={{ flex: 8 }}>
-        <Courses />
+        <Courses courses={courses} isLoaded={isLoaded} />
       </View>
       <View style={{ flex: 0.6 }}>
         <Button
