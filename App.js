@@ -48,7 +48,6 @@ const Stack = createStackNavigator();
 const AppStack = () => {
   const {isAuthenticated, loading, error, user} = useSelector(state => state.user);
   console.log(isAuthenticated);
-  console.log(user.role);
   
   useEffect(() => {
     Store.dispatch(loadUser());
@@ -70,8 +69,8 @@ const AppStack = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Login"
-      >
+        initialRouteName="Register"
+      > 
         <Stack.Screen name="Register" component={Register_screen} />
         <Stack.Screen name="Login" component={Login_screen} />
         <Stack.Screen name="OnBoarding1" component={OnBoarding1} />
