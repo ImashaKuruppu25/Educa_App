@@ -1,36 +1,64 @@
-import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
-import React, { useState } from "react";
+import { View, Text, StyleSheet, TextInput, Pressable, Dimensions, } from "react-native";
+import React, { useEffect, useState } from "react";
 import { COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from "../Redux/Actions/UserAction";
+
+var {width} = Dimensions.get('window');
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
+
+  const { error, isAuthenticated, user } = useSelector((state) => state.user);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    dispatch(userLogin(email, password));
+    //() => navigation.navigate("OnBoarding1")
+  };
+  
+  useEffect(() => {
+    if (error) {
+      alert(error);
+    }
+    if (isAuthenticated) {
+      alert("Login Successfully!");
+    }
+  }, [dispatch, error, alert, isAuthenticated]);
+
   return (
     <View style={styles.card}>
       <Text style={styles.cardHeading}>Login</Text>
       <View style={styles.container}>
         <TextInput
+          placeholder="Write your email..."
+          placeholderTextColor="#333"
           style={styles.input}
-          placeholder="Email"
-          autoCapitalize="none"
-          placeholderTextColor={COLORS.black}
-          // onChangeText={(val) => this.onChangeText("email", val)}
+          textContentType="emailAddress"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
         />
 
         <TextInput
+          placeholder="Write your password..."
+          placeholderTextColor="#333"
           style={styles.input}
-          placeholder="Password"
+          textContentType="password"
           secureTextEntry={true}
-          autoCapitalize="none"
-          placeholderTextColor={COLORS.black}
-          // onChangeText={(val) => this.onChangeText("password", val)}
-          //   right={<TextInput.Icon icon="eye" />}
+          value={password}
+          onChangeText={setPassword}
         />
         <Text style={styles.forgetPassword}>Forget password</Text>
 
         <Pressable
           style={styles.submitButton}
-          onPress={() => navigation.navigate("OnBoarding1")}
+          onPress={loginSubmit}
         >
           <Text style={styles.submitButtonText}>Login</Text>
         </Pressable>

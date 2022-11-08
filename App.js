@@ -1,15 +1,6 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import Login_screen from "./screens/Login_screen";
-import Register_screen from "./screens/Register_screen";
-import OnBoarding1 from "./screens/Slides/OnBoarding1";
-import OnBoarding2 from "./screens/Slides/OnBoarding2";
-import OnBoarding3 from "./screens/Slides/OnBoarding3";
-import ClassOption_screen from "./screens/StudentsScreens/ClassOption_screen";
-import CourseOption_screen from "./screens/StudentsScreens/CourseOption_screen";
-import MyTabs from "./components/BottomNav";
+
 
 import TeacherCourse_screen from "./screens/TeachersScreens/TeacherHome/TeacherHome_screen";
 import TeacherProfile_screen from "./screens/TeachersScreens/TeacherProfile/TeacherProfile_screen";
@@ -29,6 +20,18 @@ import AdminBottomNav from "./screens/AdminScreens/AdminBottomNav";
 import AllRequest_screen from "./screens/AdminScreens/AllRequest_screen";
 import UserManagement_screen from "./screens/AdminScreens/UserManagement_screen";
 import { COLORS, FONTS } from "./constants";
+
+import React, { useEffect } from "react";
+import { Provider, useSelector } from "react-redux";
+import Store from "./Redux/Store";
+import { loadUser } from "./Redux/Actions/UserAction";
+import Splash from "./components/Layout/Splash";
+import Main from "./components/Navigations/Main";
+import Auth from "./components/Navigations/Auth";
+import Admin from "./components/Navigations/Admin";
+import Teacher from "./components/Navigations/Teacher";
+
+
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -36,6 +39,7 @@ const theme = {
     background: "transparent",
   },
 };
+
 
 const Stack = createStackNavigator();
 
@@ -101,5 +105,45 @@ export default function App() {
         <Stack.Screen name="UserManagement" component={UserManagement_screen} />
       </Stack.Navigator>
     </NavigationContainer>
+
+const App = () => {
+  return (
+    <Provider store={Store}>
+      <AppStack />
+    </Provider>
   );
-}
+};
+
+const AppStack = () => {
+  const { isAuthenticated, loading, error, user } = useSelector(
+    (state) => state.user
+  );
+  console.log(isAuthenticated);
+  console.log(user);
+  useEffect(() => {
+    Store.dispatch(loadUser());
+  }, []);
+  
+  return (
+    <>
+      <NavigationContainer theme={theme}>
+        <>
+          {!isAuthenticated ? (
+            <Auth />
+          ) : (
+            <>
+              {user.role == "admin" ? (
+                <Admin />
+              ) : (
+                <>{user.role == "teacher" ? <Teacher /> : <Main />}</>
+              )}
+            </>
+          )}
+        </>
+      </NavigationContainer>
+    </>
+
+  );
+};
+
+export default App;
