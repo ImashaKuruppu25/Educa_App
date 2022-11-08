@@ -17,6 +17,8 @@ import lessonprogressT from "../assets/images/lessonprogressT.png";
 import newsT from "../assets/images/newsT.png";
 import Course from "../assets/images/Course.png";
 import CreateCourse from "../assets/images/CreateCourse.png";
+import SingleCourse from "../assets/images/singleCourse.png";
+import AdminDashboard from "../assets/images/adminDashboard.png";
 export default {
   logo,
   eyeIcon,
@@ -37,4 +39,6 @@ export default {
   classListImg,
   Course,
   CreateCourse,
+  SingleCourse,
+  AdminDashboard,
 };

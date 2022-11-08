@@ -174,3 +174,30 @@ export const requests = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
   },
 ];
+
+export const users = [
+  {
+    userId: "u001",
+    role: "student",
+    email: "user1@example.com",
+    phone: "+94768552546",
+  },
+  {
+    userId: "u002",
+    role: "student",
+    email: "user2@example.com",
+    phone: "+94768552546",
+  },
+  {
+    userId: "u003",
+    role: "student",
+    email: "user3@example.com",
+    phone: "+94768552546",
+  },
+  {
+    userId: "u004",
+    role: "teacher",
+    email: "user4@example.com",
+    phone: "+94768552546",
+  },
+];

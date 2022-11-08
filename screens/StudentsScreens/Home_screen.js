@@ -1,12 +1,20 @@
-import { View, Text, StyleSheet, TextInput, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import Header from "../../components/Header";
 import { assets, COLORS, FONTS, SIZES } from "../../constants";
 import { FlatGrid } from "react-native-super-grid";
+import { useNavigation } from "@react-navigation/native";
 
 const Home_screen = ({ route }) => {
   const { courses, name } = route.params;
-
+  const navigation = useNavigation();
   const [inputValue, setInputValue] = React.useState(null);
 
   //render courses to the flat list
@@ -32,32 +40,42 @@ const Home_screen = ({ route }) => {
         <Text> See all</Text>
       </View>
       {/* grid view for courses */}
+
       <FlatGrid
         itemDimension={130}
         data={courses}
         style={styles.gridView}
         spacing={0}
         renderItem={({ item }) => (
-          <View style={styles.itemContainer}>
-            <Image source={assets.courseImg1} />
-            <View style={{ padding: 10 }}>
-              <Text style={styles.itemName}>{name}</Text>
-              <Text style={styles.itemCode}>{item.courseName}</Text>
-              {/* completion status */}
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  paddingTop: 10,
-                }}
-              >
-                <Image source={assets.Slider1} />
-                <Text>5/1</Text>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("SingleCourse", {
+                singleCourse: item,
+                name: name,
+              })
+            }
+          >
+            <View style={styles.itemContainer}>
+              <Image source={assets.courseImg1} />
+              <View style={{ padding: 10 }}>
+                <Text style={styles.itemName}>{name}</Text>
+                <Text style={styles.itemCode}>{item.courseName}</Text>
+                {/* completion status */}
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    paddingTop: 10,
+                  }}
+                >
+                  <Image source={assets.Slider1} />
+                  <Text>5/1</Text>
+                </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
