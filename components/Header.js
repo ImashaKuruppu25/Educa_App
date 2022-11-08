@@ -1,14 +1,20 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { assets, FONTS, SIZES } from "../constants";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = (prop) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.username}>Hi, {prop.username}</Text>
       <View style={styles.iconContainer}>
-        <Image source={assets.mailIcon} />
-        <Image source={assets.bellIcon} />
+        <TouchableOpacity onPress={() => navigation.push("MyRequest")}>
+          <Image source={assets.mailIcon} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image source={assets.bellIcon} />
+        </TouchableOpacity>
       </View>
     </View>
   );
