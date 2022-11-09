@@ -35,57 +35,32 @@ export default function SingleUserCard({ user, navigation }) {
               User Name : {user.name}
             </Text>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "flex-start",
-            }}
-          >
-            <View
+          <View>
+            <Text
               style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-                width: "100%",
-                paddingBottom: 10,
+                color: "#333",
+                paddingVertical: 5,
+                textAlign: "left",
+                paddingLeft: 10,
+                fontSize: 14,
               }}
             >
-              <Text
-                style={{
-                  color: "#333",
-                  paddingHorizontal: 10,
-                  fontSize: 14,
-                  textAlign: "left",
-                  paddingLeft: 10,
-                }}
-              >
-                User Email : {user.email}
-              </Text>
-              <View
-                style={{
-                  flexDirection: "column",
-                }}
-              >
-                <Text
-                  style={{
-                    color: "#333",
-                    paddingHorizontal: 5,
-                    fontSize: 16,
-                    textAlign: "left",
-                    paddingLeft: 10,
-                  }}
-                >
-                  ({user.role})
-                </Text>
-              </View>
-            </View>
+              User Role : {user.role}
+            </Text>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "flex-end",
-            }}
-          ></View>
+          <View>
+            <Text
+              style={{
+                color: "#333",
+                paddingVertical: 5,
+                textAlign: "left",
+                paddingLeft: 10,
+                fontSize: 14,
+              }}
+            >
+              User Email : {user.email}
+            </Text>
+          </View>
           {user.role === "student" ? (
             <View style={styles.student}>
               <Text
