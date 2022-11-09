@@ -31,8 +31,7 @@ const AppStack = () => {
   const { isAuthenticated, loading, error, user } = useSelector(
     (state) => state.user
   );
-  console.log(isAuthenticated);
-  console.log(user);
+  
   useEffect(() => {
     Store.dispatch(loadUser());
   }, []);

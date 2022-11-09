@@ -133,19 +133,24 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
 // Delete User ----- Admin
 export const deleteUser = (id) => async (dispatch) => {
   try {
-    dispatch({ type: DELETE_USER_REQUEST });
-
+    dispatch({ type: 'DELETE_USER_REQUEST' });
+    console.log(
+      "delete data  before ============================================================================ " +
+        data
+    );
     const { data } = await axios.delete(`${URI}/api/v2/admin/user/${id}`);
-
-    dispatch({ type: DELETE_USER_SUCCESS, payload: data });
+    console.log(
+      "delete data ============================================================================ " +
+        data
+    );
+    dispatch({ type: 'DELETE_USER_SUCCESS', payload: data });
   } catch (error) {
     dispatch({
-      type: DELETE_USER_FAIL,
+      type: 'DELETE_USER_FAIL',
       payload: error.response.data.message,
     });
   }
 };
-
 
 // update profile
 export const updateUserRole = (name, email, role) => async (dispatch) => {

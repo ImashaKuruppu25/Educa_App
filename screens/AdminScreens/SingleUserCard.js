@@ -9,13 +9,28 @@ import {
   ToastAndroid,
 } from "react-native";
 import React from "react";
-import Icon from "react-native-vector-icons/Ionicons";
 import { useDispatch } from "react-redux";
+import {
+  deleteUser,
+} from '../../Redux/Actions/UserAction';
 
 var { width } = Dimensions.get("window");
 
 export default function SingleUserCard({ user, navigation }) {
   const dispatch = useDispatch();
+
+  const removeUserData = (data) => {
+
+    let id = data;
+    console.log("Remove user data ============================");
+    console.log(id);
+    dispatch(deleteUser(id));
+    ToastAndroid.showWithGravity(
+      `removed from user list`,
+      ToastAndroid.SHORT,
+      ToastAndroid.BOTTOM
+    );
+  };
 
   return (
     <>
@@ -65,13 +80,13 @@ export default function SingleUserCard({ user, navigation }) {
           <View>
             <TouchableOpacity
               style={styles.button1}
-              // onPress={() => setVisible(true)}
+              onPress={() => removeUserData(user._id)}
             >
               <Text style={styles.buttonText1}>Delete</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button2}
-              // onPress={() => setVisible(true)}
+              // onPress={() => setVisible(true)}onPress={() => removeWishListData(data._id)}
             >
               <Text style={styles.buttonText2}>Edit</Text>
             </TouchableOpacity>

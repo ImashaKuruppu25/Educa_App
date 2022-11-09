@@ -17,7 +17,7 @@ const height = Dimensions.get("window").height;
 
 export default function Profile({ navigation }) {
   const { user, error, loading } = useSelector((state) => state.user);
-  console.log(users);
+   console.log("profile" + user);
   
   const dispatch = useDispatch();
 
