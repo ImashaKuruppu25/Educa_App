@@ -4,10 +4,14 @@ import {
   updateProfileReducer,
   userReducer,
   userDataReducer,
+  updateUserRole,
+  userDeleteReducer,
 } from "./Reducers/UserReducer";
 
 const Store = configureStore({
   reducer: {
+    userRole:updateUserRole,
+    deleteUser:userDeleteReducer,
     user: userReducer,
     users: userDataReducer,
     forgotPassword: forgotPasswordReducer,

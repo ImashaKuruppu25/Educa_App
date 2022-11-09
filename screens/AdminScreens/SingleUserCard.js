@@ -61,6 +61,22 @@ export default function SingleUserCard({ user, navigation }) {
               User Email : {user.email}
             </Text>
           </View>
+
+          <View>
+            <TouchableOpacity
+              style={styles.button1}
+              // onPress={() => setVisible(true)}
+            >
+              <Text style={styles.buttonText1}>Delete</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button2}
+              // onPress={() => setVisible(true)}
+            >
+              <Text style={styles.buttonText2}>Edit</Text>
+            </TouchableOpacity>
+          </View>
+
           {user.role === "student" ? (
             <View style={styles.student}>
               <Text
@@ -153,5 +169,27 @@ const styles = StyleSheet.create({
     left: -10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  button1: {
+    padding: 5,
+    marginBottom: 6,
+    marginTop: 10,
+    marginHorizontal: 100,
+    borderRadius: 5,
+    backgroundColor: "red",
+  },
+  buttonText1: {
+    color: "white",
+  },
+  button2: {
+    padding: 5,
+    marginTop: 10,
+    marginBottom: 6,
+    marginHorizontal: 100,
+    borderRadius: 5,
+    backgroundColor: "green",
+  },
+  buttonText2: {
+    color: "white",
   },
 });

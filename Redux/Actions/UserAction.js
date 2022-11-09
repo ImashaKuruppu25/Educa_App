@@ -129,3 +129,42 @@ export const updateProfile = (name, email, avatar) => async (dispatch) => {
     console.log(error.response.data.message);
   }
 };
+
+// Delete User ----- Admin
+export const deleteUser = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: DELETE_USER_REQUEST });
+
+    const { data } = await axios.delete(`${URI}/api/v2/admin/user/${id}`);
+
+    dispatch({ type: DELETE_USER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: DELETE_USER_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+
+// update profile
+export const updateUserRole = (name, email, role) => async (dispatch) => {
+  try {
+    dispatch({ type: "updateUserRoleRequest" });
+
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    const { data } = await axios.put(
+      `${URI}/api/v2/admin/user/${id}`,
+      { name, email, role },
+      config
+    );
+    dispatch({ type: "updateUserRoleSuccess", payload: data.success });
+  } catch (error) {
+    dispatch({
+      type: "updateUserRoleFailed",
+      payload: error.response.data.message,
+    });
+    console.log(error.response.data.message);
+  }
+};
