@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     position: "absolute",
-    // top: 250,
+    top: 159,
     width: 390,
     height: 1000,
     padding: 10,
