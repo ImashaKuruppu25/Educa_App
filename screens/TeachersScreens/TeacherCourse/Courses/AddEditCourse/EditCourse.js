@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, Image, StatusBar, Dimensions } from "react-native";
 import { Button, TextInput } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 import { assets } from "../../../../../constants";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
 const EditCourse = () => {
+  const navigator = useNavigation();
   return (
     <View
       style={{
@@ -81,7 +83,6 @@ const EditCourse = () => {
       </View>
       <View>
         <Button
-          mode="contained"
           style={{
             width: "80%",
             marginLeft: "auto",
@@ -91,6 +92,7 @@ const EditCourse = () => {
             margin: 10,
             padding: 10,
           }}
+          onPress={() => navigator.navigate("TeacherCourse")}
         >
           <Text style={{ color: "white" }}>Edit Course</Text>
         </Button>

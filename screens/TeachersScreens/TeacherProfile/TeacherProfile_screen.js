@@ -13,6 +13,11 @@ const TeacherProfile_screen = () => {
   const [badgesbuttonColor, setbadgesbuttonColor] = useState("white");
   const [badgesfontColor, setbadgesfontColor] = useState("black");
   const [component, setComponent] = useState(true);
+  const [name, setName] = useState("Christina Angela");
+  const [email, setEmail] = useState("ca@gmail.com");
+  const [password, setPassword] = useState("ChristinaAngela1234");
+  const [phoneNumber, setphoneNumber] = useState("0714335111");
+
   const navigation = useNavigation();
   const height = Dimensions.get("window").height;
 
@@ -40,11 +45,9 @@ const TeacherProfile_screen = () => {
           />
         </View>
         <View style={{ flexDirection: "column" }}>
-          <Text style={{ fontSize: 16, textAlign: "center" }}>
-            Samuel prince
-          </Text>
+          <Text style={{ fontSize: 16, textAlign: "center" }}>{name}</Text>
           <Text style={{ fontSize: 14, textAlign: "center" }}>
-            @Samuel.prince123
+            @dark.prince123
           </Text>
         </View>
       </View>
@@ -91,13 +94,13 @@ const TeacherProfile_screen = () => {
           <View style={{ flex: 1, flexDirection: "column" }}>
             <Text style={{ textAlign: "center" }}>Approved</Text>
             <Text style={{ textAlign: "center", color: "#2F80ED" }}>
-              $15,567
+              $1,567
             </Text>
           </View>
           <View style={{ flex: 1, flexDirection: "column" }}>
             <Text style={{ textAlign: "center" }}>Pending</Text>
             <Text style={{ textAlign: "center", color: "#2F80ED" }}>
-              $15,567
+              $1,673
             </Text>
           </View>
         </View>
@@ -139,7 +142,22 @@ const TeacherProfile_screen = () => {
         </View>
       </View>
       <View style={{ flex: 4.5, flexDirection: "column" }}>
-        <View style={{ flex: 8 }}>{component ? <General /> : <Badges />}</View>
+        <View style={{ flex: 8 }}>
+          {component ? (
+            <General
+              setName={setName}
+              setEmail={setEmail}
+              setPassword={setPassword}
+              setphoneNumber={setphoneNumber}
+              name={name}
+              email={email}
+              password={password}
+              phoneNumber={phoneNumber}
+            />
+          ) : (
+            <Badges />
+          )}
+        </View>
         <View style={{ flex: 1 }}>
           <Text
             style={{ textAlign: "center", fontSize: 25, color: "#2F80ED" }}

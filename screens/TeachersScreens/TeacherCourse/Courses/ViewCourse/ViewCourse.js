@@ -117,7 +117,6 @@ const ViewCourse = () => {
         }}
       >
         <Button
-          mode="contained"
           style={{ backgroundColor: "#2F80ED", padding: 5 }}
           onPress={() => navigate.navigate("TeacherSaveChanges")}
         >

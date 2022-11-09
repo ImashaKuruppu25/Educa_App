@@ -7,24 +7,39 @@ import { Courses } from "./Courses/Courses";
 import axios from "axios";
 const height = Dimensions.get("window").height;
 
+
+
 const TeacherCourse_screen = () => {
   const navigation = useNavigation();
   const [courses, setCourses] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const [passingData, setPassingData] = useState([]);
+  const [deleted, setDeleted] = useState(true);
+
+  const searchFilter = (searchText, courses) => {
+    let arr = courses.filter((course) =>
+      course.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setPassingData(arr);
+  };
   const fetchApi = async () => {
     try {
       let arr = await axios.get(
         "https://uee-b.herokuapp.com/teacher/getCourse"
       );
       setCourses(arr.data);
+      setPassingData(arr.data);
       setLoaded(true);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    fetchApi();
-  }, [courses]);
+    if (deleted) {
+      fetchApi();
+      setDeleted(false);
+    }
+  }, [deleted]);
 
   return (
     <View
@@ -45,11 +60,18 @@ const TeacherCourse_screen = () => {
             marginTop: "1%",
           }}
         >
-          <Searchbar placeholder="Search" />
+          <Searchbar
+            placeholder="Search"
+            onChangeText={(newText) => searchFilter(newText, courses)}
+          />
         </View>
       </View>
       <View style={{ flex: 8 }}>
-        <Courses courses={courses} isLoaded={isLoaded} />
+        <Courses
+          courses={passingData}
+          isLoaded={isLoaded}
+          setDeleted={setDeleted}
+        />
       </View>
       <View style={{ flex: 0.6 }}>
         <Button
