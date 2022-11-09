@@ -4,12 +4,13 @@ import {
   Image,
   StyleSheet,
   FlatList,
-  ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { assets, COLORS, FONTS, SIZES } from "../../constants";
 import Icon from "react-native-vector-icons/FontAwesome";
 import PrimaryBtn from "../../components/PrimaryBtn";
+import { useNavigation } from "@react-navigation/native";
 
 const Item = ({ item }) => (
   <View style={{ marginTop: 15 }}>
@@ -18,6 +19,7 @@ const Item = ({ item }) => (
 );
 
 const Course_screen = ({ route }) => {
+  const navigation = useNavigation();
   const { singleCourse, name } = route.params;
 
   const renderItem = ({ item }) => {
@@ -79,7 +81,16 @@ const Course_screen = ({ route }) => {
             />
           </View>
           <View style={{ alignItems: "center", marginTop: 50 }}>
-            <PrimaryBtn name="Start Course" />
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("CourseDetails", {
+                  course: singleCourse,
+                  name: name,
+                })
+              }
+            >
+              <PrimaryBtn name="Start Course" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -98,9 +109,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     position: "absolute",
-    top: 250,
+    top: 159,
     width: 390,
-    height: 500,
+    height: 1000,
     padding: 10,
   },
   courseName: {

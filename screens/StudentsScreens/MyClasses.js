@@ -54,7 +54,7 @@ const MyClasses = ({ route }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
+    marginTop: 75,
   },
   item: {
     display: "flex",

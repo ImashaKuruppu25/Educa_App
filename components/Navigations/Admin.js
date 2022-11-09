@@ -5,7 +5,6 @@ import AdminHome from "../../screens/AdminScreens/AdminHome";
 import ProfileScreen from "../../screens/AdminScreens/ProfileScreen";
 import Register_screen from "../../screens/Register_screen";
 
-
 const Admin = () => {
   const Stack = createStackNavigator();
   return (

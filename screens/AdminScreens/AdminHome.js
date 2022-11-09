@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllUsers } from "../../Redux/Actions/UserAction";
 import HomeUser from "./HomeUser";
+import AdminNavigation from "./AdminNavigation";
 
 
 
@@ -32,6 +33,7 @@ export default function AdminHome({ navigation }) {
           navigation={navigation}
         />
       </ScrollView>
+      <AdminNavigation/>
     </View>
   );
 }

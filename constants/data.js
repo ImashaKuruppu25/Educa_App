@@ -19,7 +19,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
@@ -42,7 +42,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
@@ -65,7 +65,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
@@ -88,7 +88,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
@@ -137,9 +137,11 @@ export const classes = [
   },
 ];
 
+const date = new Date();
 export const requests = [
   {
     reqId: "001",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -147,6 +149,7 @@ export const requests = [
   },
   {
     reqId: "002",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -154,6 +157,7 @@ export const requests = [
   },
   {
     reqId: "003",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -161,6 +165,7 @@ export const requests = [
   },
   {
     reqId: "004",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -168,6 +173,7 @@ export const requests = [
   },
   {
     reqId: "005",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
