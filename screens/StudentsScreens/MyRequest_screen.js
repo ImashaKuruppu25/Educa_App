@@ -1,13 +1,50 @@
-import { View, Text, FlatList, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
 import { requests } from "../../constants/data";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { COLORS, SHADOWS } from "../../constants";
 import CustomSwitch from "../../components/CustomSwitch";
 import PrimaryBtn from "../../components/PrimaryBtn";
+import { useNavigation } from "@react-navigation/native";
 
-const Item = ({ item }) => (
+const Item = ({ item, nav }) => (
   <View>
+    <View
+      style={{
+        padding: 10,
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}
+    >
+      <Text style={{ color: COLORS.lightGray }}> created:{item.date}</Text>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: 50,
+        }}
+      >
+        <Icon name="pencil" size={20} color={COLORS.primary} />
+        <TouchableOpacity
+          onPress={() => {
+            requests.pop();
+            alert("reply deleted");
+            nav.push("MyRequest");
+          }}
+        >
+          <Icon name="trash-o" size={20} color="red" />
+        </TouchableOpacity>
+      </View>
+    </View>
     <View style={styles.req}>
       <Icon name="user-circle" size={30} color={COLORS.primary} />
       <Text style={{ marginLeft: 10, width: 235 }}>{item.request}</Text>
@@ -28,9 +65,12 @@ const Item = ({ item }) => (
   </View>
 );
 const MyRequest_screen = () => {
+  const navigation = useNavigation();
+  const [text, setText] = useState("second");
+  const date = new Date();
   const [switchIndex, setSwitchIndex] = useState(1);
   const renderItem = ({ item }) => {
-    return <Item item={item} />;
+    return <Item item={item} nav={navigation} />;
   };
 
   const onSelectSwitch = (index) => {
@@ -62,10 +102,27 @@ const MyRequest_screen = () => {
           <TextInput
             placeholder="Ask me anything...."
             style={styles.input}
-            // right={<TextInput.Icon icon="eye" />}
+            onChangeText={(text) => setText(text)}
           />
           <View style={{ alignItems: "center", margin: 50 }}>
-            <PrimaryBtn name="Submit Request" />
+            <TouchableOpacity
+              onPress={() => {
+                requests.push({
+                  reqId: Math.random() * 10,
+                  date:
+                    date.getDate() +
+                    "/" +
+                    date.getMonth() +
+                    "/" +
+                    date.getFullYear(),
+                  request: text,
+                });
+                alert("Request added !");
+                navigation.push("MyRequest");
+              }}
+            >
+              <PrimaryBtn name="Submit Request" />
+            </TouchableOpacity>
           </View>
         </View>
       )}
