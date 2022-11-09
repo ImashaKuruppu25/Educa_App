@@ -19,7 +19,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
@@ -42,7 +42,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
@@ -65,7 +65,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
@@ -88,7 +88,7 @@ export const classes = [
               {
                 chapterId: "chapter001",
                 chapterName: "Chapter 1",
-                chpterContent:
+                chapterContent:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Semper et eu, commodo, lacus. Semper urna nunc dictum duis adipiscing aenean scelerisque in porta. Magna viverra auctor tortor elementum. Arcu cras egestas erat condimentum mattis quam justo.",
               },
               {
