@@ -6,7 +6,6 @@ import { useNavigation } from "@react-navigation/native";
 const AdminHome_screen = () => {
   const navigation = useNavigation();
   return (
-
     <View style={styles.dashboard}>
       <View style={styles.countContainer}>
         <View style={styles.countContainerItem}>
@@ -51,19 +50,19 @@ const AdminHome_screen = () => {
         </View>
       </View>
 
-    <View>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-      <Text>AdminHome_screen</Text>
-
+      <View>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+        <Text>AdminHome_screen</Text>
+      </View>
     </View>
   );
 };

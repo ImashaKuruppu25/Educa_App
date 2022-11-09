@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image, StatusBar, Dimensions } from "react-native";
 import { Button, TextInput } from "react-native-paper";
+import axios from "axios";
 import { assets } from "../../../../../constants";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
 const Addcourse = () => {
+  const [subject, setSubject] = useState("");
+  const [clz, setClass] = useState("");
+  const [hms, setHms] = useState("");
+  const [duration, setDuration] = useState(null);
+  const [title, setTitle] = useState("");
+  const submitData = async () => {
+    try {
+      let arr = await axios
+        .post("https://uee-b.herokuapp.com/teacher/createCourse", {
+          subject: subject,
+          title: title,
+          time: duration,
+          students: hms,
+          progress: clz,
+        })
+        .then(console.log(arr));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <View
       style={{
@@ -35,10 +56,11 @@ const Addcourse = () => {
           }}
         >
           <View style={{ flex: 1, marginRight: 10 }}>
-            <Text>Category</Text>
+            <Text>Subject</Text>
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
-              placeholder="Category"
+              placeholder="Subject"
+              onChangeText={(newText) => setSubject(newText)}
             />
           </View>
           <View style={{ flex: 1 }}>
@@ -46,6 +68,7 @@ const Addcourse = () => {
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
               placeholder="Class"
+              onChangeText={(newText) => setClass(newText)}
             />
           </View>
         </View>
@@ -61,6 +84,7 @@ const Addcourse = () => {
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
               placeholder="How Many Student?"
+              onChangeText={(newText) => setHms(newText)}
             />
           </View>
           <View style={{ flex: 1 }}>
@@ -68,14 +92,16 @@ const Addcourse = () => {
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
               placeholder="Duration"
+              onChangeText={(newText) => setDuration(newText)}
             />
           </View>
         </View>
         <View style={{ margin: 10 }}>
-          <Text>Name</Text>
+          <Text>Title</Text>
           <TextInput
             style={{ backgroundColor: "white", height: 40 }}
-            placeholder="Name"
+            placeholder="Title"
+            onChangeText={(newText) => setTitle(newText)}
           />
         </View>
       </View>
@@ -90,6 +116,9 @@ const Addcourse = () => {
             backgroundColor: "#2F80ED",
             margin: 10,
             padding: 10,
+          }}
+          onPress={() => {
+            submitData();
           }}
         >
           <Text style={{ color: "white" }}>Create Course</Text>
