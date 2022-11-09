@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 
@@ -5,7 +6,6 @@ import React, { useEffect } from "react";
 import { Provider, useSelector } from "react-redux";
 import Store from "./Redux/Store";
 import { loadUser } from "./Redux/Actions/UserAction";
-import Splash from "./components/Layout/Splash";
 import Main from "./components/Navigations/Main";
 import Auth from "./components/Navigations/Auth";
 import Admin from "./components/Navigations/Admin";

@@ -1,123 +1,129 @@
-import axios from 'axios';
-import {URI} from '../URI';
+import axios from "axios";
+import { URI } from "../URI";
 
 // Login User
-export const userLogin = (email, password) => async dispatch => {
+export const userLogin = (email, password) => async (dispatch) => {
   try {
     dispatch({
-      type: 'userLoginRequest',
+      type: "userLoginRequest",
     });
 
-    const config = {headers: {'Content-Type': 'application/json'}};
+    const config = { headers: { "Content-Type": "application/json" } };
 
-    const {data} = await axios.post(
-      `https://uee-b.herokuapp.com/api/v2/login`,
-      {email, password},
-      config,
+    const { data } = await axios.post(
+      `${URI}/api/v2/login`,
+      { email, password },
+      config
     );
     dispatch({
-      type: 'userLoginSuccess',
+      type: "userLoginSuccess",
       payload: data.user,
     });
   } catch (error) {
     dispatch({
-      type: 'userLoginFalse',
+      type: "userLoginFalse",
       payload: error.response.data.message,
     });
   }
 };
 
 // Registration User
-export const register = (name, email, password, avatar) => async dispatch => {
+export const register = (name, email, password, avatar) => async (dispatch) => {
   try {
-    dispatch({type: 'userCreateRequest'});
+    dispatch({ type: "userCreateRequest" });
 
-    const {data} = await axios.post(
-      `https://uee-b.herokuapp.com/api/v2/registration`,
-      {name, email, password, avatar},
+    const { data } = await axios.post(
+      `${URI}/api/v2/registration`,
+      { name, email, password, avatar },
       {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-      },
+      }
     );
-    dispatch({type: 'userCreateSuccess', payload: data.user});
+    dispatch({ type: "userCreateSuccess", payload: data.user });
   } catch (error) {
     dispatch({
-      type: 'userCreateFail',
+      type: "userCreateFail",
       payload: error.response.data.message,
     });
   }
 };
 
 // Load User
-export const loadUser = () => async dispatch => {
-
+export const loadUser = () => async (dispatch) => {
   try {
-    dispatch({type: 'userLoadRequest'});
-   
-    const {data} = await axios.get(
-      `https://uee-b.herokuapp.com/api/v2/me`,
-    );
-  
-    console.log("User Load Data " + data);
-    dispatch({type: 'userLoadSuccess', payload: data.user});
+    dispatch({ type: "userLoadRequest" });
+
+    const { data } = await axios.get(`${URI}/api/v2/me`);
+
+    dispatch({ type: "userLoadSuccess", payload: data.user });
   } catch (error) {
-    console.log('catch');
-    dispatch({type: 'userLoadFailed', payload: error.response.data.message});
+    dispatch({ type: "userLoadFailed", payload: error.response.data.message });
+  }
+};
+
+// Get All users
+export const GetAllUsers = () => async (dispatch) => {
+  console.log("BBBBBBBBBBBBBBBBBB");
+  try {
+    dispatch({ type: "userDataRequest" });
+
+    const { data } = await axios.get(`${URI}/api/v2/admin/users`);
+    console.log(data);
+    dispatch({ type: "userDataSuccess", payload: data.users });
+  } catch (error) {
+    dispatch({ type: "userDataFail", payload: error.response.data.message });
   }
 };
 
 // Log out User
-
-export const logOutUser = () => async dispatch => {
+export const logOutUser = () => async (dispatch) => {
   try {
-    await axios.get(
-      `https://uee-b.herokuapp.com/api/v2/logout`,
-    );
-    dispatch({type: 'userLogOutSucess'});
+    await axios.get(`${URI}/api/v2/logout`);
+    dispatch({ type: "userLogOutSucess" });
   } catch (error) {
-    dispatch({type: 'userLogOutFail', payload: error.response.data.message});
+    dispatch({ type: "userLogOutFail", payload: error.response.data.message });
   }
 };
 
 // Forgot Password
-export const forgotPassword = email => async dispatch => {
+export const forgotPassword = (email) => async (dispatch) => {
   try {
-    dispatch({type: 'forgotPasswordRequest'});
+    dispatch({ type: "forgotPasswordRequest" });
 
-    const config = {headers: {'Content-Type': 'application/json'}};
+    const config = { headers: { "Content-Type": "application/json" } };
 
-    const {data} = await axios.post(
-      `https://uee-b.herokuapp.com/api/v2/login/password/forgot`,
-      {email},
-      config,
+    const { data } = await axios.post(
+      `${URI}/api/v2/password/forgot`,
+      { email },
+      config
     );
-    dispatch({type: 'forgotPasswordSuccess', payload: data.message});
+    dispatch({ type: "forgotPasswordSuccess", payload: data.message });
   } catch (error) {
     dispatch({
-      type: 'forgotPasswordFailed',
+      type: "forgotPasswordFailed",
       payload: error.response.data.message,
     });
   }
 };
 
 // update profile
-export const updateProfile = (name, email, avatar) => async dispatch => {
+export const updateProfile = (name, email, avatar) => async (dispatch) => {
   try {
-    dispatch({type: 'updateProfileReducer'});
+    dispatch({ type: "updateProfileReducer" });
 
-    const config = {headers: {'Content-Type': 'application/json'}};
+    const config = { headers: { "Content-Type": "application/json" } };
 
-    const {data} = await axios.put(
-      `https://uee-b.herokuapp.com/api/v2/me/update/info`,
-      {name, email, avatar},
-      config,
+    const { data } = await axios.put(
+      `${URI}/api/v2/me/update/info`,
+      { name, email, avatar },
+      config
     );
-    dispatch({type: 'updateProfileSuccess', payload: data.success});
+    dispatch({ type: "updateProfileSuccess", payload: data.success });
   } catch (error) {
     dispatch({
-      type: 'updateProfileFailed',
+      type: "updateProfileFailed",
       payload: error.response.data.message,
     });
     console.log(error.response.data.message);

@@ -1,1 +1,1 @@
-export const URI = "https://uee-b.herokuapp.com"
+export const URI = "https://uee-new.herokuapp.com"

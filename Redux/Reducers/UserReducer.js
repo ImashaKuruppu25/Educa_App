@@ -91,3 +91,18 @@ export const updateProfileReducer = createReducer(initialState, {
         state.error = action.payload;
     },
 });
+
+// user data reducer
+export const userDataReducer = createReducer(initialState, {
+  userDataRequest: state => {
+    state.loading = true;
+  },
+  userDataSuccess: (state, action) => {
+    state.loading = false;
+    state.users = action.payload;
+  },
+  userDataFail: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+  },
+});
