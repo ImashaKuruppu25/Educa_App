@@ -31,11 +31,23 @@ const AppStack = () => {
   const { isAuthenticated, loading, error, user } = useSelector(
     (state) => state.user
   );
-  console.log(isAuthenticated);
-  console.log(user);
+
+  // console.log(isAuthenticated);
+  // console.log(user);
+
   useEffect(() => {
     Store.dispatch(loadUser());
   }, []);
+
+  const [loaded] = useFonts({
+    InterBold: require("./assets/fonts/Inter-Bold.ttf"),
+    InterSemiBold: require("./assets/fonts/Inter-SemiBold.ttf"),
+    InterMedium: require("./assets/fonts/Inter-Medium.ttf"),
+    InterRegular: require("./assets/fonts/Inter-Regular.ttf"),
+    InterLight: require("./assets/fonts/Inter-Light.ttf"),
+  });
+
+  if (!loaded) return null;
 
   return (
     <>

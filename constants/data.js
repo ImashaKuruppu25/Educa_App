@@ -137,9 +137,11 @@ export const classes = [
   },
 ];
 
+const date = new Date();
 export const requests = [
   {
     reqId: "001",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -147,6 +149,7 @@ export const requests = [
   },
   {
     reqId: "002",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -154,6 +157,7 @@ export const requests = [
   },
   {
     reqId: "003",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -161,6 +165,7 @@ export const requests = [
   },
   {
     reqId: "004",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:
@@ -168,6 +173,7 @@ export const requests = [
   },
   {
     reqId: "005",
+    date: date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear(),
     request:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est nunc morbi vitae urna, urna elementum felis, laoreet.",
     reply:

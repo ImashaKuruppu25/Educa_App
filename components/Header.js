@@ -12,7 +12,7 @@ const Header = (prop) => {
         <TouchableOpacity onPress={() => navigation.push("MyRequest")}>
           <Image source={assets.mailIcon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("AdminDashboard")}>
+        <TouchableOpacity>
           <Image source={assets.bellIcon} />
         </TouchableOpacity>
       </View>
