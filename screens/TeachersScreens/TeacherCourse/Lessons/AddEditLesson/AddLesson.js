@@ -3,6 +3,7 @@ import { View, Text, Dimensions, StatusBar, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Antdesign from "react-native-vector-icons/AntDesign";
 import { Button, TextInput } from "react-native-paper";
+import axios from "axios";
 const height = Dimensions.get("window").height;
 
 const AddLesson = ({ route }) => {
@@ -10,9 +11,24 @@ const AddLesson = ({ route }) => {
   const { values } = route.params;
   const [lessonName, setLessonName] = useState("");
   const [chapters, setChapters] = useState("");
-  // const [lessonName,setLessonName] = useState('')
-  // const [lessonName,setLessonName] = useState('')
-  // const [lessonName,setLessonName] = useState('')
+  const [description, setDescription] = useState("");
+  const [topic, setTopic] = useState("");
+  const [addNote, setaddNote] = useState("");
+  const addLesson = async () => {
+    try {
+      let arr = await axios
+        .post("https://uee-b.herokuapp.com/teacher/createLesson", {
+          lessonName: lessonName,
+          chapters: chapters,
+          description: description,
+          topic: topic,
+          addNote: addNote,
+        })
+        .then(navigation.navigate("TeacherCourse"));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <View
       style={{
@@ -65,7 +81,7 @@ const AddLesson = ({ route }) => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
+                // value={"subject"}
                 onChangeText={(newText) => setLessonName(newText)}
               />
             </View>
@@ -82,8 +98,8 @@ const AddLesson = ({ route }) => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setChapters(newText)}
               />
             </View>
             <View
@@ -106,8 +122,8 @@ const AddLesson = ({ route }) => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setDescription(newText)}
               />
             </View>
             <View
@@ -132,8 +148,8 @@ const AddLesson = ({ route }) => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setTopic(newText)}
               />
             </View>
             <View
@@ -156,8 +172,8 @@ const AddLesson = ({ route }) => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setaddNote(newText)}
               />
             </View>
             {/* <View>
@@ -202,6 +218,7 @@ const AddLesson = ({ route }) => {
               justifyContent: "center",
               backgroundColor: "#2F80ED",
             }}
+            onPress={() => addLesson()}
           >
             <Text style={{ color: "white" }}>Add Lesson</Text>
           </Button>
