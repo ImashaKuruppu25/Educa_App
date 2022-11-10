@@ -7,7 +7,7 @@ import { DeleteLesson } from "./DeleteLesson/DeleteLesson";
 const height = Dimensions.get("window").height;
 
 const SaveChanges = ({ route }) => {
-  const { values } = route.params;
+  const { values, lessons } = route.params;
   const navigation = useNavigation();
   return (
     <View
@@ -27,7 +27,11 @@ const SaveChanges = ({ route }) => {
           borderColor: "gray",
         }}
       >
-        <Pressable onPress={() => navigation.navigate("TeacherViewCourse")}>
+        <Pressable
+          onPress={() =>
+            navigation.navigate("TeacherViewCourse", { values: values })
+          }
+        >
           <Antdesign name="arrowleft" size={30} />
         </Pressable>
         <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: 10 }}>
@@ -65,7 +69,7 @@ const SaveChanges = ({ route }) => {
           </Text>
         </View>
         <View style={{ flex: 7, height: "100%" }}>
-          <DeleteLesson />
+          <DeleteLesson lessons={lessons} />
         </View>
         <View
           style={{

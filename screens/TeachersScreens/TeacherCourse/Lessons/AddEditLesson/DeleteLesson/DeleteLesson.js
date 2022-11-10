@@ -66,8 +66,9 @@ const DATA = [
   },
 ];
 
-export const DeleteLesson = () => {
+export const DeleteLesson = (props) => {
   const navigation = useNavigation();
+  console.log(props.lessons);
   return (
     <View
       style={{
@@ -78,11 +79,11 @@ export const DeleteLesson = () => {
       }}
     >
       <FlatList
-        data={DATA}
+        data={props.lessons}
         renderItem={({ item }) => {
           return (
             <Pressable onPress={() => navigation.navigate("TeacherEditLesson")}>
-              <Text> Lesson {item.id}</Text>
+              <Text> Lesson</Text>
               <View
                 style={{
                   flexDirection: "row",
