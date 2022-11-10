@@ -169,14 +169,22 @@ export const Courses = (props) => {
                 >
                   <View style={{ flex: 1 }}>
                     <Button
-                      onPress={() => navigation.navigate("TeacherViewCourse")}
+                      onPress={() =>
+                        navigation.navigate("TeacherViewCourse", {
+                          values: item,
+                        })
+                      }
                     >
                       <Text style={{ color: "black" }}>View</Text>
                     </Button>
                   </View>
                   <View style={{ flex: 1 }}>
                     <Button
-                      onPress={() => navigation.navigate("TeacherEditCourse")}
+                      onPress={() =>
+                        navigation.navigate("TeacherEditCourse", {
+                          values: item,
+                        })
+                      }
                     >
                       <Text style={{ color: "black" }}>Edit</Text>
                     </Button>

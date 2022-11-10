@@ -16,7 +16,8 @@ import axios from "axios";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 
-const ViewCourse = () => {
+const ViewCourse = ({ route }) => {
+  const { values } = route.params;
   const navigate = useNavigation();
   const [lesson, setLessons] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
@@ -78,7 +79,7 @@ const ViewCourse = () => {
           }}
         >
           <View style={{ paddingTop: 50, paddingLeft: 10, width: 250 }}>
-            <Text>High School Algebra I: Help and Review</Text>
+            <Text>{values.title}</Text>
           </View>
           <View
             style={{
@@ -89,18 +90,14 @@ const ViewCourse = () => {
               justifyContent: "space-between",
             }}
           >
-            <Text>Mathematics</Text>
-            <Text>10 Chapter</Text>
+            <Text>{values.subject}</Text>
+            <Text>{values.progress} Chapter</Text>
           </View>
           <View
             style={{ paddingLeft: 10, paddingTop: 5, flexDirection: "column" }}
           >
             <Text>Description</Text>
-            <Text style={{ width: "98%" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitasse
-              dolor etiam sed ante donec quis sapien. Malesuada rhoncus nullam
-              eleifend lorem egestas mauris massa massa
-            </Text>
+            <Text style={{ width: "98%" }}>Why not learn {values.title}?</Text>
           </View>
           <View>
             <Lesson lessons={lesson} isLoaded={isLoaded} />

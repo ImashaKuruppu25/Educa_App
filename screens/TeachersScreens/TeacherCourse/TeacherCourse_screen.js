@@ -9,7 +9,8 @@ const height = Dimensions.get("window").height;
 
 
 
-const TeacherCourse_screen = () => {
+const TeacherCourse_screen = ({ route }) => {
+  const values = route.params;
   const navigation = useNavigation();
   const [courses, setCourses] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
@@ -34,6 +35,11 @@ const TeacherCourse_screen = () => {
       console.log(error);
     }
   };
+  useEffect(() => {
+    if (values) {
+      fetchApi();
+    }
+  }, [values]);
   useEffect(() => {
     if (deleted) {
       fetchApi();
