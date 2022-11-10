@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Text, FlatList, Pressable } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { useNavigation } from "@react-navigation/native";
+import AntDesign from "react-native-vector-icons/AntDesign";
+// import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 const DATA = [
   {
@@ -66,8 +67,12 @@ const DATA = [
   },
 ];
 
-export const DeleteLesson = () => {
-  const navigation = useNavigation();
+export const DeleteLesson = (props) => {
+  const deleteLesson = async (id) => {
+    await axios
+      .delete(`https://uee-b.herokuapp.com/teacher/deleteLesson/${id}`)
+      .then(props.isDeleted(true));
+  };
   return (
     <View
       style={{
@@ -78,11 +83,15 @@ export const DeleteLesson = () => {
       }}
     >
       <FlatList
-        data={DATA}
+        data={props.lessons}
         renderItem={({ item }) => {
           return (
-            <Pressable onPress={() => navigation.navigate("TeacherEditLesson")}>
-              <Text> Lesson {item.id}</Text>
+            <Pressable
+              onPress={() => {
+                deleteLesson(item._id);
+              }}
+            >
+              <Text> Lesson</Text>
               <View
                 style={{
                   flexDirection: "row",
@@ -94,12 +103,12 @@ export const DeleteLesson = () => {
                 }}
               >
                 <Text>{item.lessonName}</Text>
-                <Ionicons name="ios-add-sharp" size={20} />
+                <AntDesign name="delete" size={20} />
               </View>
             </Pressable>
           );
         }}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item._id}
       />
     </View>
   );

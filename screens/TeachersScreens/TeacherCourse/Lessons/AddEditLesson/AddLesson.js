@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Dimensions, StatusBar, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Antdesign from "react-native-vector-icons/AntDesign";
-import { EditDetails } from "./EditComponent/EditDetails";
-import { Button } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 const height = Dimensions.get("window").height;
 
-const AddLesson = () => {
+const AddLesson = ({ route }) => {
   const navigation = useNavigation();
-
+  const { values } = route.params;
+  const [lessonName, setLessonName] = useState("");
+  const [chapters, setChapters] = useState("");
+  // const [lessonName,setLessonName] = useState('')
+  // const [lessonName,setLessonName] = useState('')
+  // const [lessonName,setLessonName] = useState('')
   return (
     <View
       style={{
@@ -27,9 +31,9 @@ const AddLesson = () => {
           flex: 1,
         }}
       >
-        <Pressable onPress={() => navigation.navigate("TeacherSaveChanges")}>
+        {/* <Pressable onPress={() => navigation.navigate("TeacherSaveChanges")}>
           <Antdesign name="arrowleft" size={30} />
-        </Pressable>
+        </Pressable> */}
         <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: 10 }}>
           Add Lesson
         </Text>
@@ -48,48 +52,73 @@ const AddLesson = () => {
               flexDirection: "column",
             }}
           >
-            <View>
+            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                 }}
               >
                 Lesson Name
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                onChangeText={(newText) => setLessonName(newText)}
+              />
             </View>
-            <View>
+            <View style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 10 }}>
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                 }}
               >
                 Chapters
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View style={{ marginBottom: "10%" }}>
+            <View
+              style={{
+                marginBottom: "10%",
+                paddingLeft: 10,
+                paddingRight: 10,
+                paddingTop: 10,
+              }}
+            >
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                 }}
               >
                 Description
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View>
+            <View
+              style={{
+                paddingLeft: 10,
+                paddingRight: 10,
+              }}
+            >
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                   borderTopWidth: 1,
                   marginTop: 10,
                   paddingTop: "10%",
@@ -98,32 +127,59 @@ const AddLesson = () => {
               >
                 Topic
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View>
+            <View
+              style={{
+                paddingLeft: 10,
+                paddingRight: 10,
+              }}
+            >
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
                   paddingRight: 10,
+                  paddingTop: 10,
                 }}
               >
                 Add Note
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View>
+            {/* <View>
               <Text
                 style={{
                   fontWeight: "bold",
                   paddingLeft: 10,
                   paddingRight: 10,
+                  paddingTop: 10,
                 }}
               >
                 Add Content
               </Text>
-              <EditDetails details={"Test"} />
-            </View>
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
+            </View> */}
           </View>
           {/* <View style={{ flex: 1 }}>
           <Content />

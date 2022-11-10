@@ -2,8 +2,7 @@ import React from "react";
 import { View, Text, Dimensions, StatusBar, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Antdesign from "react-native-vector-icons/AntDesign";
-import { EditDetails } from "./EditComponent/EditDetails";
-import { Button } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 const height = Dimensions.get("window").height;
 
 const EditLesson = () => {
@@ -26,9 +25,9 @@ const EditLesson = () => {
           flex: 1,
         }}
       >
-        <Pressable onPress={() => navigation.navigate("TeacherSaveChanges")}>
+        {/* <Pressable onPress={() => navigation.navigate("TeacherSaveChanges")}>
           <Antdesign name="arrowleft" size={30} />
-        </Pressable>
+        </Pressable> */}
         <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: 10 }}>
           Edit Lesson
         </Text>
@@ -47,48 +46,68 @@ const EditLesson = () => {
               flexDirection: "column",
             }}
           >
-            <View>
+            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                 }}
               >
                 Lesson Name
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View>
+            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                 }}
               >
                 Chapters
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View style={{ marginBottom: "10%" }}>
+            <View
+              style={{ marginBottom: "10%", paddingLeft: 10, paddingRight: 10 }}
+            >
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                 }}
               >
                 Description
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View>
+            <View
+              style={{
+                paddingLeft: 10,
+                paddingRight: 10,
+              }}
+            >
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
-                  paddingRight: 10,
                   borderTopWidth: 1,
                   marginTop: 10,
                   paddingTop: "10%",
@@ -97,9 +116,21 @@ const EditLesson = () => {
               >
                 Topic
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View>
+            <View
+              style={{
+                paddingLeft: 10,
+                paddingRight: 10,
+              }}
+            >
               <Text
                 style={{
                   fontWeight: "bold",
@@ -109,9 +140,16 @@ const EditLesson = () => {
               >
                 Add Note
               </Text>
-              <EditDetails details={"Test"} />
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
             </View>
-            <View>
+            {/* <View>
               <Text
                 style={{
                   fontWeight: "bold",
@@ -121,8 +159,17 @@ const EditLesson = () => {
               >
                 Add Content
               </Text>
-              <EditDetails details={"Test"} />
-            </View>
+              <TextInput
+                style={{
+                  backgroundColor: "white",
+                  height: 40,
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                }}
+                value={"subject"}
+                // onChangeText={(newText) => setSubject(newText)}
+              />
+            </View> */}
           </View>
           {/* <View style={{ flex: 1 }}>
           <Content />

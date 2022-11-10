@@ -79,7 +79,9 @@ const ViewCourse = ({ route }) => {
           }}
         >
           <View style={{ paddingTop: 50, paddingLeft: 10, width: 250 }}>
-            <Text>{values.title}</Text>
+            <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+              {values.title}
+            </Text>
           </View>
           <View
             style={{
@@ -96,7 +98,9 @@ const ViewCourse = ({ route }) => {
           <View
             style={{ paddingLeft: 10, paddingTop: 5, flexDirection: "column" }}
           >
-            <Text>Description</Text>
+            <Text style={{ fontSize: 16, fontWeight: "bold", marginTop: 20 }}>
+              Description
+            </Text>
             <Text style={{ width: "98%" }}>Why not learn {values.title}?</Text>
           </View>
           <View>
@@ -116,7 +120,10 @@ const ViewCourse = ({ route }) => {
         <Button
           style={{ backgroundColor: "#2F80ED", padding: 5 }}
           onPress={() =>
-            navigate.navigate("TeacherSaveChanges", { values: values })
+            navigate.navigate("TeacherSaveChanges", {
+              values: values,
+              lessons: lesson,
+            })
           }
         >
           <Text style={{ color: "white" }}>Edit course</Text>
