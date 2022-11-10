@@ -8,7 +8,7 @@ import { News } from "./News/News";
 
 const TeacherHome_screen = () => {
   const [name, setName] = useState("Samuel");
-  const [searchText, setSearchText] = useState("Samuel");
+  const [searchText, setSearchText] = useState("");
   const height = Dimensions.get("window").height;
   return (
     <View
@@ -31,7 +31,6 @@ const TeacherHome_screen = () => {
               name="bell"
               size={30}
               style={{ paddingRight: 5, paddingTop: 5 }}
-              onPress={() => setName("Nimal")}
             />
           </View>
         </View>

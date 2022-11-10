@@ -36,6 +36,7 @@ const TeacherCourse_screen = ({ route }) => {
     }
   };
   useEffect(() => {
+    setLoaded(false);
     if (values) {
       fetchApi();
     }

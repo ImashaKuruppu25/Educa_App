@@ -61,15 +61,15 @@ const Addcourse = () => {
             <Text>Subject</Text>
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
-              placeholder="Subject"
+              placeholder="Maths"
               onChangeText={(newText) => setSubject(newText)}
             />
           </View>
           <View style={{ flex: 1 }}>
-            <Text>Class</Text>
+            <Text>Chapters</Text>
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
-              placeholder="Class"
+              placeholder="12"
               onChangeText={(newText) => setClass(newText)}
             />
           </View>
@@ -85,7 +85,7 @@ const Addcourse = () => {
             <Text>How Many Student?</Text>
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
-              placeholder="How Many Student?"
+              placeholder="10"
               onChangeText={(newText) => setHms(newText)}
             />
           </View>
@@ -93,7 +93,7 @@ const Addcourse = () => {
             <Text>Duration</Text>
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
-              placeholder="Duration"
+              placeholder="12 hours"
               onChangeText={(newText) => setDuration(newText)}
             />
           </View>
@@ -102,7 +102,7 @@ const Addcourse = () => {
           <Text>Title</Text>
           <TextInput
             style={{ backgroundColor: "white", height: 40 }}
-            placeholder="Title"
+            placeholder="Linear algebra"
             onChangeText={(newText) => setTitle(newText)}
           />
         </View>

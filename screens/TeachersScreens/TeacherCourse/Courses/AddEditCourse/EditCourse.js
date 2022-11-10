@@ -68,7 +68,7 @@ const EditCourse = ({ route }) => {
             />
           </View>
           <View style={{ flex: 1 }}>
-            <Text>Class</Text>
+            <Text>Chapters</Text>
             <TextInput
               style={{ backgroundColor: "white", height: 40 }}
               value={clz}
