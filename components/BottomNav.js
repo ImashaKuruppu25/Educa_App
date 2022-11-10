@@ -4,6 +4,7 @@ import Home_screen from "../screens/StudentsScreens/Home_screen";
 import MyClasses from "../screens/StudentsScreens/MyClasses";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { COLORS, SIZES } from "../constants";
+import ProfileScreen from "../screens/AdminScreens/ProfileScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -42,7 +43,7 @@ function MyTabs({ route }) {
       />
       <Tab.Screen
         name="Profile"
-        component={MyPrfile_screen}
+        component={ProfileScreen}
         options={{
           tabBarIcon: () => (
             <Icon

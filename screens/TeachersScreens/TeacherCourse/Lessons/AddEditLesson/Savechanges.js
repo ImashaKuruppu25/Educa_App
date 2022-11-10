@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Dimensions, StatusBar, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native-paper";
+import axios from "axios";
 import Antdesign from "react-native-vector-icons/AntDesign";
 import { DeleteLesson } from "./DeleteLesson/DeleteLesson";
 const height = Dimensions.get("window").height;
 
 const SaveChanges = ({ route }) => {
+  const [deleted, setDeleted] = useState(false);
   const { values, lessons } = route.params;
+  const [updateLessons, setLessons] = useState(lessons);
   const navigation = useNavigation();
+  const fetchApi = async () => {
+    try {
+      let arr = await axios.get(
+        "https://uee-b.herokuapp.com/teacher/getLesson"
+      );
+      setLessons(arr.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchApi();
+  }, [deleted]);
+
   return (
     <View
       style={{
@@ -69,7 +87,11 @@ const SaveChanges = ({ route }) => {
           </Text>
         </View>
         <View style={{ flex: 7, height: "100%" }}>
-          <DeleteLesson lessons={lessons} />
+          <DeleteLesson
+            lessons={updateLessons}
+            values={values}
+            isDeleted={setDeleted}
+          />
         </View>
         <View
           style={{
@@ -91,7 +113,9 @@ const SaveChanges = ({ route }) => {
               marginTop: 5,
               justifyContent: "center",
             }}
-            onPress={() => navigation.navigate("TeacherAddLesson")}
+            onPress={() =>
+              navigation.navigate("TeacherAddLesson", { values: values })
+            }
           >
             <Text style={{ color: "#2F80ED" }}>Add New Lesson</Text>
           </Button>

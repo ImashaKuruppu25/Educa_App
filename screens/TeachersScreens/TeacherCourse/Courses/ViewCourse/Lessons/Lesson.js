@@ -87,7 +87,9 @@ export const Lesson = (props) => {
         height: "90%",
       }}
     >
-      <Text style={{ marginBottom: 10 }}>Your Lessons</Text>
+      <Text style={{ marginBottom: 10, fontSize: 16, fontWeight: "600" }}>
+        Your Lessons
+      </Text>
       <FlatList
         data={props.lessons}
         renderItem={({ item }) => {

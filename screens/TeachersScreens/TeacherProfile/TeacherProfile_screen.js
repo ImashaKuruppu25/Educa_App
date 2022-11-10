@@ -1,9 +1,18 @@
-import { View, Text, Image, Dimensions, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Dimensions,
+  StatusBar,
+  ToastAndroid,
+} from "react-native";
 import { assets } from "../../../constants";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import TeacherNavigation from "../TeacherComponents/Navigation/TeacherNavigation";
+import { logOutUser } from "../../../Redux/Actions/UserAction";
 import { Button } from "react-native-paper";
+import { useDispatch } from "react-redux";
 import { General } from "./General/General";
 import { Badges } from "./Badges/Badges";
 
@@ -20,6 +29,23 @@ const TeacherProfile_screen = () => {
 
   const navigation = useNavigation();
   const height = Dimensions.get("window").height;
+  const dispatch = useDispatch();
+  // Log out Handler
+  const logOut = () => {
+    dispatch(logOutUser());
+    // if (error) {
+    //   ToastAndroid.showWithGravity(
+    //     `Log out Failed`,
+    //     ToastAndroid.SHORT,
+    //     ToastAndroid.BOTTOM
+    //   );
+    // }
+    // ToastAndroid.showWithGravity(
+    //   `Log out Success`,
+    //   ToastAndroid.SHORT,
+    //   ToastAndroid.BOTTOM
+    // );
+  };
 
   return (
     <View
@@ -45,7 +71,11 @@ const TeacherProfile_screen = () => {
           />
         </View>
         <View style={{ flexDirection: "column" }}>
-          <Text style={{ fontSize: 16, textAlign: "center" }}>{name}</Text>
+          <Text
+            style={{ fontSize: 18, textAlign: "center", fontWeight: "bold" }}
+          >
+            {name}
+          </Text>
           <Text style={{ fontSize: 14, textAlign: "center" }}>
             @dark.prince123
           </Text>
@@ -161,9 +191,7 @@ const TeacherProfile_screen = () => {
         <View style={{ flex: 1 }}>
           <Text
             style={{ textAlign: "center", fontSize: 25, color: "#2F80ED" }}
-            onPress={() => {
-              navigation.navigate("Login");
-            }}
+            onPress={logOut}
           >
             Log Out
           </Text>
