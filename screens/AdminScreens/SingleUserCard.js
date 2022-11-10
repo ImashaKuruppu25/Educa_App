@@ -20,7 +20,6 @@ export default function SingleUserCard({ user, navigation }) {
   const dispatch = useDispatch();
 
   const removeUserData = (data) => {
-
     let id = data;
     console.log("Remove user data ============================");
     console.log(id);
@@ -56,6 +55,7 @@ export default function SingleUserCard({ user, navigation }) {
                 color: "#333",
                 paddingVertical: 5,
                 textAlign: "left",
+                marginTop: -10,
                 paddingLeft: 10,
                 fontSize: 14,
               }}
@@ -71,13 +71,15 @@ export default function SingleUserCard({ user, navigation }) {
                 textAlign: "left",
                 paddingLeft: 10,
                 fontSize: 14,
+                position: "absolute",
+                top: 0,
               }}
             >
               User Email : {user.email}
             </Text>
           </View>
 
-          <View>
+          <View style={{ position: "absolute", right: -90 }}>
             <TouchableOpacity
               style={styles.button1}
               onPress={() => removeUserData(user._id)}
@@ -138,7 +140,7 @@ export default function SingleUserCard({ user, navigation }) {
 const styles = StyleSheet.create({
   UserCard: {
     width: "100%",
-    height: width / 4 - 20,
+    height: width / 3 - 20,
     borderRadius: 10,
     elevation: 8,
     backgroundColor: "#e5e5e5",
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "20%",
-    height: width / 4 - 20,
+    height: width / 3 - 20,
     resizeMode: "contain",
     borderTopRightRadius: 2,
     borderTopLeftRadius: 10,
@@ -198,7 +200,7 @@ const styles = StyleSheet.create({
   },
   button2: {
     padding: 5,
-    marginTop: 10,
+    // marginTop: 10,
     marginBottom: 6,
     marginHorizontal: 100,
     borderRadius: 5,
