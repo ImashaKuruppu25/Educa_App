@@ -115,7 +115,9 @@ const ViewCourse = ({ route }) => {
       >
         <Button
           style={{ backgroundColor: "#2F80ED", padding: 5 }}
-          onPress={() => navigate.navigate("TeacherSaveChanges")}
+          onPress={() =>
+            navigate.navigate("TeacherSaveChanges", { values: values })
+          }
         >
           <Text style={{ color: "white" }}>Edit course</Text>
         </Button>

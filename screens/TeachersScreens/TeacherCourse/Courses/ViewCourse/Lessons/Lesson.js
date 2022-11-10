@@ -84,12 +84,12 @@ export const Lesson = (props) => {
         marginLeft: 10,
         marginTop: 10,
         marginLeft: 10,
-        height: "100%",
+        height: "90%",
       }}
     >
       <Text style={{ marginBottom: 10 }}>Your Lessons</Text>
       <FlatList
-        data={props.lessons || DATA}
+        data={props.lessons}
         renderItem={({ item }) => {
           return (
             <Pressable onPress={() => navigation.navigate("TeacherEditLesson")}>

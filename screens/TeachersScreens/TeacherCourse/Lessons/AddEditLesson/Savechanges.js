@@ -6,7 +6,8 @@ import Antdesign from "react-native-vector-icons/AntDesign";
 import { DeleteLesson } from "./DeleteLesson/DeleteLesson";
 const height = Dimensions.get("window").height;
 
-const SaveChanges = () => {
+const SaveChanges = ({ route }) => {
+  const { values } = route.params;
   const navigation = useNavigation();
   return (
     <View
@@ -30,7 +31,7 @@ const SaveChanges = () => {
           <Antdesign name="arrowleft" size={30} />
         </Pressable>
         <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: 10 }}>
-          Edit Course
+          Edit Course Content
         </Text>
       </View>
       <View style={{ flex: 5 }}>
@@ -56,11 +57,11 @@ const SaveChanges = () => {
               margin: 10,
               marginTop: 5,
               padding: 5,
-              borderWidth: 1,
-              borderColor: "gray",
+              // borderWidth: 1,
+              // borderColor: "gray",
             }}
           >
-            High School Algebra 1: Help and Review
+            {values.title}
           </Text>
         </View>
         <View style={{ flex: 7, height: "100%" }}>
@@ -108,7 +109,9 @@ const SaveChanges = () => {
             backgroundColor: "#2F80ED",
             justifyContent: "center",
           }}
-          onPress={() => navigation.navigate("TeacherViewCourse")}
+          onPress={() =>
+            navigation.navigate("TeacherViewCourse", { values: values })
+          }
         >
           <Text style={{ color: "white" }}>Save Changes</Text>
         </Button>
