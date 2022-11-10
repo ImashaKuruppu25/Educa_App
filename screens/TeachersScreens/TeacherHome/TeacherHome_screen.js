@@ -8,6 +8,7 @@ import { News } from "./News/News";
 
 const TeacherHome_screen = () => {
   const [name, setName] = useState("Samuel");
+  const [searchText, setSearchText] = useState("Samuel");
   const height = Dimensions.get("window").height;
   return (
     <View
@@ -35,13 +36,16 @@ const TeacherHome_screen = () => {
           </View>
         </View>
         <View style={styles.headerBottom}>
-          <Searchbar placeholder="Search" />
+          <Searchbar
+            placeholder="Search"
+            onChangeText={(newText) => setSearchText(newText)}
+          />
         </View>
       </View>
 
       <View style={styles.body}>
         <View style={{ flex: 1.2 }}>
-          <LessonProgress />
+          <LessonProgress searchText={searchText} />
         </View>
         <View style={{ flex: 2 }}>
           <News />

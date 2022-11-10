@@ -100,7 +100,6 @@ const SaveChanges = () => {
         }}
       >
         <Button
-          mode="contained"
           style={{
             height: "100%",
             width: "80%",
@@ -109,6 +108,7 @@ const SaveChanges = () => {
             backgroundColor: "#2F80ED",
             justifyContent: "center",
           }}
+          onPress={() => navigation.navigate("TeacherViewCourse")}
         >
           <Text style={{ color: "white" }}>Save Changes</Text>
         </Button>

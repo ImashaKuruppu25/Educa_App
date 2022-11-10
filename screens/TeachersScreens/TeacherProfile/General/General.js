@@ -8,7 +8,7 @@ import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 import { Button, TextInput } from "react-native-paper";
 
-export const General = () => {
+export const General = (props) => {
   const [nameEdit, setnameEdit] = useState(false);
   const [emailEdit, setemailEdit] = useState(false);
   const [passwordEdit, setpasswordEdit] = useState(false);
@@ -26,7 +26,7 @@ export const General = () => {
             <>
               <View style={{ flex: 12 }}>
                 <Text>Name</Text>
-                <Text>Christina Angela</Text>
+                <Text>{props.name}</Text>
               </View>
               <View style={{ flex: 1, paddingTop: 10 }}>
                 <Feather
@@ -42,7 +42,8 @@ export const General = () => {
               <View style={{ flex: 13 }}>
                 <TextInput
                   style={{ backgroundColor: "white", height: 40 }}
-                  placeholder="Name"
+                  value={props.name}
+                  onChangeText={(newText) => props.setName(newText)}
                 />
               </View>
               <View style={{ flex: 1, paddingTop: 15 }}>
@@ -64,7 +65,7 @@ export const General = () => {
             <>
               <View style={{ flex: 12 }}>
                 <Text>Email</Text>
-                <Text>ca@gmail.com</Text>
+                <Text>{props.email}</Text>
               </View>
               <View style={{ flex: 1, paddingTop: 10 }}>
                 <Feather
@@ -80,7 +81,8 @@ export const General = () => {
               <View style={{ flex: 13 }}>
                 <TextInput
                   style={{ backgroundColor: "white", height: 40 }}
-                  placeholder="Email"
+                  value={props.email}
+                  onChangeText={(newText) => props.setEmail(newText)}
                 />
               </View>
               <View style={{ flex: 1, paddingTop: 15 }}>
@@ -143,7 +145,7 @@ export const General = () => {
             <>
               <View style={{ flex: 12 }}>
                 <Text>Phone number</Text>
-                <Text>071-1234567</Text>
+                <Text>{props.phoneNumber}</Text>
               </View>
               <View style={{ flex: 1, paddingTop: 10 }}>
                 <Feather
@@ -159,7 +161,8 @@ export const General = () => {
               <View style={{ flex: 13 }}>
                 <TextInput
                   style={{ backgroundColor: "white", height: 40 }}
-                  placeholder="0711111111"
+                  value={props.phoneNumber}
+                  onChangeText={(newText) => props.setphoneNumber(newText)}
                 />
               </View>
               <View style={{ flex: 1, paddingTop: 15 }}>
@@ -207,13 +210,13 @@ export const General = () => {
             />
           </View>
         </View>
-        <View style={{ alignItems: "center" }}>
+        {/* <View style={{ alignItems: "center" }}>
           {nameEdit | emailEdit | passwordEdit | phoneEdit ? (
             <Button style={{ backgroundColor: "#2F80ED" }}>
               <Text style={{ color: "white" }}>Submit</Text>
             </Button>
           ) : null}
-        </View>
+        </View> */}
       </ScrollView>
     </View>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, Image, StatusBar, Dimensions } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 import { assets } from "../../../../../constants";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
@@ -12,6 +13,7 @@ const Addcourse = () => {
   const [hms, setHms] = useState("");
   const [duration, setDuration] = useState(null);
   const [title, setTitle] = useState("");
+  const navigation = useNavigation();
   const submitData = async () => {
     try {
       let arr = await axios
@@ -22,7 +24,7 @@ const Addcourse = () => {
           students: hms,
           progress: clz,
         })
-        .then(console.log(arr));
+        .then(navigation.navigate("TeacherCourse", { newInput: false }));
     } catch (err) {
       console.log(err);
     }

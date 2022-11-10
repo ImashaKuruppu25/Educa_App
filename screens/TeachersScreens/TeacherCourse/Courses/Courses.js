@@ -3,9 +3,11 @@ import { View, Text, FlatList, Image } from "react-native";
 import { assets } from "../../../../constants";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Materialicons from "react-native-vector-icons/MaterialIcons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "react-native-paper";
 import AnimatedLoader from "react-native-animated-loader";
+import axios from "axios";
 
 const DATA = [
   {
@@ -92,6 +94,11 @@ const DATA = [
 
 export const Courses = (props) => {
   const navigation = useNavigation();
+  const deleteCourse = async (id) => {
+    await axios
+      .delete(`https://uee-b.herokuapp.com/teacher/deleteCourse/${id}`)
+      .then(props.setDeleted(true));
+  };
   return !props.isLoaded ? (
     <AnimatedLoader
       visible={true}
@@ -162,16 +169,29 @@ export const Courses = (props) => {
                 >
                   <View style={{ flex: 1 }}>
                     <Button
-                      onPress={() => navigation.navigate("TeacherViewCourse")}
+                      onPress={() =>
+                        navigation.navigate("TeacherViewCourse", {
+                          values: item,
+                        })
+                      }
                     >
                       <Text style={{ color: "black" }}>View</Text>
                     </Button>
                   </View>
                   <View style={{ flex: 1 }}>
                     <Button
-                      onPress={() => navigation.navigate("TeacherEditCourse")}
+                      onPress={() =>
+                        navigation.navigate("TeacherEditCourse", {
+                          values: item,
+                        })
+                      }
                     >
                       <Text style={{ color: "black" }}>Edit</Text>
+                    </Button>
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Button onPress={() => deleteCourse(item._id)}>
+                      <AntDesign name="delete" size={20} />
                     </Button>
                   </View>
                 </View>
