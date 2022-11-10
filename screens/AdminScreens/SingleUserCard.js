@@ -10,9 +10,7 @@ import {
 } from "react-native";
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  deleteUser,
-} from '../../Redux/Actions/UserAction';
+import { deleteUser, GetAllUsers } from "../../Redux/Actions/UserAction";
 
 var { width } = Dimensions.get("window");
 
@@ -21,9 +19,9 @@ export default function SingleUserCard({ user, navigation }) {
 
   const removeUserData = (data) => {
     let id = data;
-    console.log("Remove user data ============================");
     console.log(id);
     dispatch(deleteUser(id));
+    dispatch(GetAllUsers());
     ToastAndroid.showWithGravity(
       `removed from user list`,
       ToastAndroid.SHORT,
