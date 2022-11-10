@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Dimensions, StatusBar, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 import Antdesign from "react-native-vector-icons/AntDesign";
 import { Button, TextInput } from "react-native-paper";
 const height = Dimensions.get("window").height;
 
-const EditLesson = () => {
+const EditLesson = ({ route }) => {
+  const { values } = route.params;
   const navigation = useNavigation();
+  const [lessonName, setLessonName] = useState("");
+  const [chapters, setChapters] = useState("");
+  const [description, setDescription] = useState("");
+  const [topic, setTopic] = useState("");
+  const [addNote, setaddNote] = useState("");
+  const editLesson = async () => {
+    try {
+      let arr = await axios
+        .put(`https://uee-b.herokuapp.com/teacher/updateLesson/${values._id}`, {
+          lessonName: lessonName,
+          chapters: chapters,
+          description: description,
+          topic: topic,
+          addNote: addNote,
+        })
+        .then(navigation.navigate("TeacherCourse"));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <View
       style={{
@@ -59,11 +81,11 @@ const EditLesson = () => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setLessonName(newText)}
               />
             </View>
-            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
+            <View style={{ paddingLeft: 10, paddingRight: 10, paddingTop: 10 }}>
               <Text
                 style={{
                   fontWeight: "bold",
@@ -76,12 +98,17 @@ const EditLesson = () => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setChapters(newText)}
               />
             </View>
             <View
-              style={{ marginBottom: "10%", paddingLeft: 10, paddingRight: 10 }}
+              style={{
+                marginBottom: "10%",
+                paddingLeft: 10,
+                paddingRight: 10,
+                paddingTop: 10,
+              }}
             >
               <Text
                 style={{
@@ -95,8 +122,8 @@ const EditLesson = () => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setDescription(newText)}
               />
             </View>
             <View
@@ -121,8 +148,8 @@ const EditLesson = () => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setTopic(newText)}
               />
             </View>
             <View
@@ -134,8 +161,8 @@ const EditLesson = () => {
               <Text
                 style={{
                   fontWeight: "bold",
-                  paddingLeft: 10,
                   paddingRight: 10,
+                  paddingTop: 10,
                 }}
               >
                 Add Note
@@ -145,8 +172,8 @@ const EditLesson = () => {
                   backgroundColor: "white",
                   height: 40,
                 }}
-                value={"subject"}
-                // onChangeText={(newText) => setSubject(newText)}
+                // value={"subject"}
+                onChangeText={(newText) => setaddNote(newText)}
               />
             </View>
             {/* <View>
@@ -155,6 +182,7 @@ const EditLesson = () => {
                   fontWeight: "bold",
                   paddingLeft: 10,
                   paddingRight: 10,
+                  paddingTop: 10,
                 }}
               >
                 Add Content
@@ -163,8 +191,6 @@ const EditLesson = () => {
                 style={{
                   backgroundColor: "white",
                   height: 40,
-                  paddingLeft: 10,
-                  paddingRight: 10,
                 }}
                 value={"subject"}
                 // onChangeText={(newText) => setSubject(newText)}
@@ -192,6 +218,7 @@ const EditLesson = () => {
               justifyContent: "center",
               backgroundColor: "#2F80ED",
             }}
+            onPress={() => editLesson()}
           >
             <Text style={{ color: "white" }}>Edit Lesson</Text>
           </Button>

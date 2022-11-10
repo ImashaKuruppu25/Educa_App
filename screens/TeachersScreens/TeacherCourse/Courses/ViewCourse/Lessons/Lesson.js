@@ -94,7 +94,11 @@ export const Lesson = (props) => {
         data={props.lessons}
         renderItem={({ item }) => {
           return (
-            <Pressable onPress={() => navigation.navigate("TeacherEditLesson")}>
+            <Pressable
+              onPress={() =>
+                navigation.navigate("TeacherEditLesson", { values: item })
+              }
+            >
               <View
                 style={{
                   flexDirection: "row",
